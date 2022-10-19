@@ -36,3 +36,238 @@
     transform: rotate(360deg);
   }
 }
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color: white;
+}
+
+.loading {
+  margin-top: 50vh;
+  margin-left: 45vw;
+  position: absolute;
+  top: 0;
+}
+
+.main-nav {
+  background-color: #282c34;
+}
+
+.work-wrapper {
+  background-color: #282c34;
+}
+
+.home-wrapper {
+  background-color: #282c34;
+}
+
+.about-wrapper {
+  background-color: #282c34;
+}
+
+.nav-item a {
+  color: white;
+}
+
+.nav-item a:hover{
+  color: lime;
+}
+
+.site-logo {
+  width: 100px;
+  transition: 1.5s;
+}
+
+.site-logo:hover {
+  width: 100px;
+  scale: 1.1;
+  transform: rotateY(45deg)rotateX(45deg)rotateY(315deg);
+  transition: 1.5s;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px white solid;
+  position: sticky;
+  top: 0;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 1rem;
+}
+
+.nav-menu li a {
+  padding: 3rem;
+} 
+
+/*desktop menu open*/
+.hamburger-react {
+  margin-right: 1rem;
+  z-index: 2;
+}
+
+.work-poster {
+  padding: 0;
+  margin: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.work-container {
+  margin: auto;
+  text-align: center;
+  background-color: black;
+  border-radius: 15px;
+}
+
+.wp-image-28 {
+  height: 30vh;
+  width: 30vw;
+  border-radius: 5px;
+}
+
+.about-header {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/*Home page*/
+
+.home-header {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/*Home page*/
+.home-title {
+  font-size: 3rem;
+  margin-top: 15vh;
+  margin-left: 10vw;
+  margin-bottom: 0;
+}
+
+.home-title::after {
+  content: '';
+  height: 4px;
+  width: 0;
+  background-color: aquamarine;
+  display: block;
+  transition: 1s ease-in-out;
+}
+
+.home-title:hover::after {
+  content: '';
+  height: 4px;
+  width: 100%;
+  background-color: #7fffd4;
+  display: block;
+}
+
+.home-content p {
+  font-size: 1.5rem;
+}
+
+.call-to-action {
+  background-color: aquamarine;
+  color: black;
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: 1.25rem;
+  width: fit-content;
+  margin-top: 5vh;
+  margin-left: 10vw;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.wp-container-1 {
+  color: aquamarine;
+  margin-left: 10vw;
+}
+
+.wp-container-3 {
+  margin-top: 15vh;
+  max-width: 50vw;
+  margin-left: 10vw;
+}
+
+.menuNav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 100%;
+  right: 0;
+  bottom: -1rem;
+  top: -1rem; 
+  background-color: aquamarine;
+  z-index: 1;
+  transition: 1s ease;
+}
+
+.menuNav li {
+  display: none;
+}
+
+.showMenu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: -1rem;
+  top: -1rem; 
+  background-color: black;
+  z-index: 1;
+  transition: 1s ease;
+}
+
+.showMenu li a {
+  color: white;
+  text-decoration: underline;
+  text-decoration-color: black;
+  transition: ease-out .6s;
+}
+
+.showMenu li a:hover {
+  text-decoration-color: aquamarine;
+  transition: .3s;
+}
+
+.showMenu .burger-item {
+  margin-top: 5rem;
+}
+
+.burger-item {
+  text-align: center;
+  display: flex;
+  margin-bottom: 30px;
+  margin: auto;
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+
