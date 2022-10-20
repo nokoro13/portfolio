@@ -1,12 +1,11 @@
 import {useState, useEffect} from 'react';
 import Loading from '../components/Loading';
 
-
 const Works = () => {
 
     const [posts, setPosts] = useState([]);
     const [postLoaded, setPostLoaded] = useState(false);
-    const restPath = 'https://nokoro.ca/portfolio/wp-json/wp/v2/posts/27?=embed';
+    const restPath = 'https://nokoro.ca/portfolio/wp-json/wp/v2/posts?_embed';
   
     useEffect(() => {
         fetch(restPath)
@@ -19,23 +18,23 @@ const Works = () => {
     }, [restPath]);
 
     return (
-      <section className='work-wrapper'>
-      <div className='work-poster'>
+      
       <>
       { postLoaded ?
       <>
-          <section className='work-container'>
-          <h1 className="work-title">{posts.title.rendered}</h1>
-          <div className="work-content" dangerouslySetInnerHTML={{__html:posts.content.rendered}}>
+        {posts.map(post => 
+          <section key={post.id} className='work-container'>
+          <h1 className="work-title">{post.title.rendered}</h1>
+          <div className="work-content" dangerouslySetInnerHTML={{__html:post.content.rendered}}>
           </div>
           </section>
+          )}
       </>
   : 
       <Loading />
   }
   </>
-      </div>
-  </section>
+ 
       );
     
 };

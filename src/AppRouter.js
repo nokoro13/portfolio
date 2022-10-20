@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Components
 //import Header from '../components/Header';
-//import Footer from '../components/Footer';
+import Footer from './components/Footer';
 import Nav from './components/Nav';
 // Pages
 import PageHome from './pages/PageHome';
@@ -25,7 +25,7 @@ function AppRouter() {
             <Route path="/work" element={<PageWork />} />
           </Routes>
         </main>
-        
+        <Footer/>
       </div>
     </BrowserRouter>
   );

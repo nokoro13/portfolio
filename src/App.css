@@ -41,6 +41,10 @@
   box-sizing: border-box;
 }
 
+main {
+  background-color: #282c34;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -48,21 +52,21 @@ body {
 
 html {
   color: white;
+  background-color: #282c34;
 }
 
 .loading {
-  margin-top: 50vh;
-  margin-left: 45vw;
-  position: absolute;
-  top: 0;
+  display: flex;
+  margin: auto;
 }
 
 .main-nav {
   background-color: #282c34;
 }
 
+/*Could cause trouble*/
 .work-wrapper {
-  background-color: #282c34;
+  min-height: 100vh;
 }
 
 .home-wrapper {
@@ -87,10 +91,19 @@ html {
 }
 
 .site-logo:hover {
+  -webkit-filter: drop-shadow(5px 5px 5px aquamarine);
+  filter: drop-shadow(5px 5px 5px aquamarine);
+}
+
+.site-logo-2 {
   width: 100px;
-  scale: 1.1;
-  transform: rotateY(45deg)rotateX(45deg)rotateY(315deg);
+  transform: rotateY(360deg);
   transition: 1.5s;
+}
+
+.site-logo-2:hover {
+  -webkit-filter: drop-shadow(5px 5px 5px aquamarine);
+  filter: drop-shadow(5px 5px 5px aquamarine);
 }
 
 .main-nav {
@@ -119,12 +132,18 @@ html {
   z-index: 2;
 }
 
+
+/*
+.work-title {
+  font-size: 2rem;
+}
+
 .work-poster {
   padding: 0;
   margin: auto;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .work-container {
@@ -132,12 +151,51 @@ html {
   text-align: center;
   background-color: black;
   border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .wp-image-28 {
   height: 30vh;
   width: 30vw;
   border-radius: 5px;
+}
+*/
+
+/*Work Page*/
+
+.work-container {
+  margin: auto;
+  width: 350px;
+  height: max-content;
+  overflow: hidden;
+  background-color: black;
+  border-radius: 35px;
+  text-align: center;
+  color: white;
+  transition: .6s ease-out;
+  box-shadow: 0 0 10px 1px white;
+}
+
+.work-container:hover {
+  transform: scale(1.05);
+  transition: .2s ease-in;
+  box-shadow: 0 0 20px 1px aquamarine;
+}
+
+.work-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 20px 60px;
+  margin: auto;
+  max-width: 90%;
+}
+
+.wp-image-28 {
+  width: 100%;
+  height: inherit;
 }
 
 .about-header {
@@ -161,27 +219,62 @@ html {
 /*Home page*/
 .home-title {
   font-size: 3rem;
-  margin-top: 15vh;
+  margin-top: 10vh;
   margin-left: 10vw;
   margin-bottom: 0;
+  cursor: pointer;
 }
 
-.home-title::after {
+/*.home-title::after {
   content: '';
   height: 4px;
   width: 0;
   background-color: aquamarine;
   display: block;
   transition: 1s ease-in-out;
-}
+}*/
 
-.home-title:hover::after {
+/*.home-title:hover::after {
   content: '';
   height: 4px;
   width: 100%;
   background-color: #7fffd4;
   display: block;
+}*/
+
+.home-title-2 {
+  font-size: 3rem;
+  margin-left: 10vw;
+  margin-bottom: 0;
+  cursor: pointer;
 }
+
+
+.home-title-2::after {
+  content: '';
+  height: 4px;
+  width: 100%;
+  background-color: #7fffd4;
+  display: block;
+  transition: 2s ease-in-out;
+}
+
+.home-title-3 {
+  font-size: 3rem;
+  margin-left: 10vw;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+
+.home-title-3::after {
+  content: '';
+  height: 4px;
+  width: 0%;
+  background-color: #282c34;
+  display: block;
+}
+
 
 .home-content p {
   font-size: 1.5rem;
@@ -196,6 +289,20 @@ html {
   width: fit-content;
   margin-top: 5vh;
   margin-left: 10vw;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.call-to-action-2 {
+  color: aquamarine;
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: 1.25rem;
+  width: fit-content;
+  margin-top: -10vh;
+  margin-left: 25vw;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
   padding-left: 2rem;
@@ -270,4 +377,50 @@ html {
   font-weight: bold;
 }
 
+
+/*Social Links*/
+
+
+/*Footer*/
+
+.footer {
+  padding: 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  transition: .6s ease;
+}
+
+.footer ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 30%;
+  list-style: none;
+}
+
+.footer ul li a{
+  color: white;
+  text-decoration: none;
+}
+
+.footer-hide {
+  width: 100%;
+  position: absolute;
+  bottom: -100px;
+  transition: .6s ease;
+}
+
+.footer-hide ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 30%;
+  list-style: none;
+}
+
+.footer-hide ul li a{
+  color: white;
+  text-decoration: none;
+}
 
