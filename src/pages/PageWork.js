@@ -9,12 +9,15 @@ const PageWork = () => {
 	}, []);
 
     return (
-        
-        <section className='work-wrapper'>
-           
-            <Works/>
+        <div>
+        <h1 className='work-heading'>My Projects</h1>
+        <div className='work-underline'></div>
+            <section className='work-wrapper'>
             
-        </section>
+                <Works/>
+            
+            </section>
+        </div>
     );
 
 };

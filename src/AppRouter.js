@@ -11,6 +11,7 @@ import Nav from './components/Nav';
 import PageHome from './pages/PageHome';
 import PageAbout from './pages/PageAbout';
 import PageWork from './pages/PageWork';
+import PageDetail from './pages/PageDetail';
 
 
 function AppRouter() {
@@ -23,6 +24,7 @@ function AppRouter() {
             <Route path="/" exact element={<PageHome />} />
             <Route path="/about" element={<PageAbout />} />
             <Route path="/work" element={<PageWork />} />
+            <Route path="work/detail/:id" element={<PageDetail />} />
           </Routes>
         </main>
         <Footer/>

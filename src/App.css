@@ -43,6 +43,7 @@
 
 main {
   background-color: #282c34;
+  font-family: 'Roboto', 'sans-serif';
 }
 
 body {
@@ -81,18 +82,14 @@ html {
   color: white;
 }
 
-.nav-item a:hover{
-  color: lime;
-}
-
 .site-logo {
   width: 100px;
   transition: 1.5s;
 }
 
 .site-logo:hover {
-  -webkit-filter: drop-shadow(5px 5px 5px aquamarine);
-  filter: drop-shadow(5px 5px 5px aquamarine);
+  -webkit-filter: drop-shadow(0px 0px 5px aquamarine);
+  filter: drop-shadow(0px 0px 5px aquamarine);
 }
 
 .site-logo-2 {
@@ -102,8 +99,8 @@ html {
 }
 
 .site-logo-2:hover {
-  -webkit-filter: drop-shadow(5px 5px 5px aquamarine);
-  filter: drop-shadow(5px 5px 5px aquamarine);
+  -webkit-filter: drop-shadow(0px 0px 5px aquamarine);
+  filter: drop-shadow(0px 0px 5px aquamarine);
 }
 
 .main-nav {
@@ -112,6 +109,7 @@ html {
   align-items: center;
   border-bottom: 1px white solid;
   position: sticky;
+  z-index: 1;
   top: 0;
 }
 
@@ -163,15 +161,45 @@ html {
 }
 */
 
+/*Work tabs*/
+
+.work-tabs {
+  width: 100%;
+}
+
+.work-tabs ul {
+  display: flex;
+  flex-direction: row;
+}
+
+
 /*Work Page*/
+
+.work-heading {
+  font-size: 3rem;
+  display: flex;
+  margin-left: 10vw;
+  margin-top: 5vh;
+  margin-bottom: 0;
+}
+
+.work-underline {
+  content: '';
+  height: 4px;
+  max-width: 90vw;
+  background-color: #7fffd4;
+  display: block;
+  margin-left: 10vw;
+  margin-bottom: 4rem;
+}
 
 .work-container {
   margin: auto;
-  width: 350px;
-  height: max-content;
+  width: 400px;
+  height: 405px;
   overflow: hidden;
-  background-color: black;
-  border-radius: 35px;
+  background-color: hsl(160, 100%, 75%, 10%);
+  border: 2px aquamarine solid;
   text-align: center;
   color: white;
   transition: .6s ease-out;
@@ -182,20 +210,106 @@ html {
   transform: scale(1.05);
   transition: .2s ease-in;
   box-shadow: 0 0 20px 1px aquamarine;
+  border: 2px white solid;
+}
+
+.work-title {
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: underline;
+  text-decoration-color: hsl(160, 100%, 75%, 0%);
+  transition: .6s ease;
+}
+
+.work-container:hover .work-title {
+  transition: .6s ease;
+  text-decoration-color: aquamarine;
 }
 
 .work-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  gap: 20px 60px;
+  gap: 60px 60px;
   margin: auto;
+  max-width: 80%;
+}
+
+.work-container p {
   max-width: 90%;
+  margin: auto;
+  margin-bottom: .5rem;
+}
+
+.more-info {
+  color:  hsl(160, 100%, 75%, 0%);;
+  transition: .6s ease;
+  text-decoration: none;
+  text-align: right;
+}
+
+.work-container:hover .more-info {
+  color: aquamarine;
+  transition: .6s ease;
+}
+
+/*Single Page*/
+
+.detail-content {
+  max-width: 900px;
+  display: flex;
+  margin: auto;
+  flex-wrap: wrap;
+}
+
+/*Img sizes*/
+
+.wp-block-image {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .wp-image-28 {
   width: 100%;
   height: inherit;
+}
+
+.wp-image-79 {
+  width: 100%;
+  height: inherit;
+}
+
+.wp-image-77 {
+  width: 100%;
+  height: inherit;
+}
+
+.wp-image-83 {
+  width: 100%;
+  height: inherit;
+}
+
+.wp-image-87 {
+  width: 100%;
+  height: inherit;
+}
+
+/*Social links on work posts*/
+
+.wp-block-social-links  {
+  display: none;
+}
+
+.detail-content .wp-block-social-links {
+  display: flex;
+}
+
+.wp-block-social-link-label{
+  display: none;
+}
+
+.wp-social-link {
+  list-style: none;
 }
 
 .about-header {
@@ -211,7 +325,7 @@ html {
 .home-header {
   padding: 0;
   margin: 0;
-  min-height: 100vh;
+  
   display: flex;
   flex-direction: column;
 }
@@ -219,7 +333,7 @@ html {
 /*Home page*/
 .home-title {
   font-size: 3rem;
-  margin-top: 10vh;
+  margin-top: 5vh;
   margin-left: 10vw;
   margin-bottom: 0;
   cursor: pointer;
@@ -274,7 +388,6 @@ html {
   background-color: #282c34;
   display: block;
 }
-
 
 .home-content p {
   font-size: 1.5rem;
@@ -388,7 +501,8 @@ html {
   position: fixed;
   bottom: 0;
   width: 100%;
-  transition: .6s ease;
+  transition: 1s ease;
+  /*background-color: hsl(220, 13%, 18%, 95%);*/
 }
 
 .footer ul {
@@ -406,9 +520,10 @@ html {
 
 .footer-hide {
   width: 100%;
-  position: absolute;
-  bottom: -100px;
-  transition: .6s ease;
+  position: relative;
+  bottom: 0;
+  margin-top: 2rem;
+  transition: 1s ease;
 }
 
 .footer-hide ul {

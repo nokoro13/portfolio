@@ -8,10 +8,8 @@ const PageHome = () => {
 
     const [homePage, setHomePage] = useState([]);
     const [postLoaded, setPostLoaded] = useState(false);
-    const [name, setName] =useState(false);
+    const [name, setName] =useState(localStorage.getItem('HOME_LOADED') ===  null ? [] :  JSON.parse(localStorage.getItem('HOME_LOADED') ) );
     const restPath = 'https://nokoro.ca/portfolio/wp-json/wp/v2/pages/9';
-
- 
 
     useEffect(() => {
         fetch(restPath)
@@ -22,6 +20,10 @@ const PageHome = () => {
             setPostLoaded(true);
         })
     }, [restPath]);
+
+    useEffect(()=> {
+        window.localStorage.setItem('HOME_LOADED', JSON.stringify(name));
+    },[name]);
 
     return (
         
