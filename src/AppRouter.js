@@ -12,6 +12,7 @@ import PageHome from './pages/PageHome';
 import PageAbout from './pages/PageAbout';
 import PageWork from './pages/PageWork';
 import PageDetail from './pages/PageDetail';
+import { AnimatePresence } from 'framer-motion';
 
 
 function AppRouter() {
@@ -19,14 +20,14 @@ function AppRouter() {
     <BrowserRouter>
       <div className="wrapper">
         <Nav/>
-        <main>
+        <AnimatePresence exitBeforeEnter>
           <Routes>
             <Route path="/" exact element={<PageHome />} />
             <Route path="/about" element={<PageAbout />} />
             <Route path="/work" element={<PageWork />} />
             <Route path="work/detail/:id" element={<PageDetail />} />
           </Routes>
-        </main>
+        </AnimatePresence>
         <Footer/>
       </div>
     </BrowserRouter>

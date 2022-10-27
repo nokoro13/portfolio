@@ -1,14 +1,17 @@
 import {useState, useEffect} from 'react';
 import Loading from '../components/Loading';
 import { Link } from 'react-router-dom';
+import Filter from './Filter';
+import { motion } from 'framer-motion';
 
 const Works = () => {
 
     const [posts, setPosts] = useState([]);
     const [postLoaded, setPostLoaded] = useState(false);
-    const [postCategories, setPostCategories] = useState([]);
+    const [filter, setFilter] = useState([]);
+    const [activeFilter, setActiveFilter] = useState(0);
     const restPath = 'https://nokoro.ca/portfolio/wp-json/wp/v2/posts?_embed';
-    const restPathCategories = 'https://nokoro.ca/portfolio/wp-json/wp/v2/categories?_embed';
+    
   
     useEffect(() => {
         fetch(restPath)
@@ -16,38 +19,23 @@ const Works = () => {
         .then((data) => {
             console.log(data);
             setPosts(data);
+            setFilter(data);
             setPostLoaded(true);
         })
     }, [restPath]);
 
-    useEffect(()=> {
-        fetch(restPathCategories)
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data);
-            setPostCategories(data);
-            setPostLoaded(true);
-        })
-    },[restPathCategories]);
 
     return (
       
       <>
+      <Filter posts={posts} setFilter={setFilter} activeFilter={activeFilter} setActiveFilter={setActiveFilter}/>
       { postLoaded ?
 
         <>
-        {postCategories.map(category=>
-            <section >
-                <ul className='work-tabs' key={category.id}>
-                    <li>{category.name}</li>
-                </ul>
-            </section>
-        )}
-        
-
+    
       <>
-        {posts.map(post => 
-          <section key={post.id} className='work-container'>
+        {filter.map(post => 
+          <motion.section transition={{delay:.1}} initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} key={post.id} className='work-container'>
               <div className='work-card-cover'>
             <h1 className="work-title">{post.title.rendered}</h1>
             <div className="work-content" dangerouslySetInnerHTML={{__html:post.content.rendered}}>
@@ -56,8 +44,8 @@ const Works = () => {
                 <p>More Info...</p>
             </Link>
             </div>
-            <p>{post.categories}</p>
-          </section>
+            
+          </motion.section>
           )}
           </>
       </>

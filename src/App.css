@@ -62,13 +62,14 @@ html {
 }
 
 .main-nav {
-  background-color: #282c34;
+  /*background-color: #282c34;*/
+  background-image: linear-gradient(to top, hsl(220, 13%, 18%, 0), hsl(220, 13%, 18%) 25%);
 }
 
-/*Could cause trouble*/
+/*Could cause trouble
 .work-wrapper {
   min-height: 100vh;
-}
+}*/
 
 .home-wrapper {
   background-color: #282c34;
@@ -103,11 +104,12 @@ html {
   filter: drop-shadow(0px 0px 5px aquamarine);
 }
 
+
+
 .main-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px white solid;
   position: sticky;
   z-index: 1;
   top: 0;
@@ -162,16 +164,35 @@ html {
 */
 
 /*Work tabs*/
-
-.work-tabs {
-  width: 100%;
-}
-
-.work-tabs ul {
+/*
+.filter-work {
   display: flex;
+  width: 100%;
   flex-direction: row;
+  align-self: center;
+}*/
+
+.filter-work {
+  position: relative;
+  width: 100%;
+  margin: auto;
 }
 
+.filter-work button {
+  border: aquamarine 1px solid;
+  background-color: #282c34;
+  color: aquamarine;
+  border-radius: 3px;
+  padding: .5rem;
+  font-weight: bold;
+  margin-right: 1rem;
+} 
+
+.filter-work button.active {
+  color: #282c34;
+  background-color: aquamarine;
+  border: #282c34;
+}
 
 /*Work Page*/
 
@@ -196,7 +217,6 @@ html {
 .work-container {
   margin: auto;
   width: 400px;
-  height: 405px;
   overflow: hidden;
   background-color: hsl(160, 100%, 75%, 10%);
   border: 2px aquamarine solid;
@@ -233,6 +253,7 @@ html {
   gap: 60px 60px;
   margin: auto;
   max-width: 80%;
+  margin-top: 0;
 }
 
 .work-container p {
@@ -322,10 +343,20 @@ html {
 
 /*Home page*/
 
+.home-image {
+  position: relative;
+  align-self: flex-end;
+  right: 15vw;
+  bottom: 20vh;
+}
+
+.home-image-hide {
+  display: none;
+}
+
 .home-header {
   padding: 0;
   margin: 0;
-  
   display: flex;
   flex-direction: column;
 }
@@ -507,9 +538,10 @@ html {
 
 .footer ul {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  max-width: 30%;
+  max-width: 100%;
+  gap: 40px;
   list-style: none;
 }
 

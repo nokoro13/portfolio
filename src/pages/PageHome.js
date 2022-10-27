@@ -3,6 +3,7 @@
 import { useEffect, useState} from 'react';
 import Loading from '../components/Loading';
 import { NavLink } from 'react-router-dom';
+import {motion} from 'framer-motion';
 
 const PageHome = () => {
 
@@ -27,7 +28,7 @@ const PageHome = () => {
 
     return (
         
-        <section className='home-wrapper'>
+        <motion.div className='home-wrapper' initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 2}}>
             <div className='home-header'>
             <>
             { postLoaded ?
@@ -38,13 +39,14 @@ const PageHome = () => {
                 </div>
                 <NavLink to="/work" className='call-to-action'>My Work</NavLink>
                 <NavLink to="/about" className='call-to-action-2'>About</NavLink>
+                <img className={name === true ? 'home-image' : 'home-image-hide'} src="portfolio-logo-02.png" alt="img" width={200} height={200}/>
             </>
         : 
             <Loading />
         }
         </>
             </div>
-        </section>
+        </motion.div>
     );
 
 };

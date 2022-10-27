@@ -1,8 +1,6 @@
-// Nav
 import HamburgerMenu from './HamburgerMenu';
 import { NavLink } from "react-router-dom";
 import { useState } from 'react';
-//import HamburgerMenu from "./HamburgerMenu";
 
 const Nav = () => {
   function blur(e) {
