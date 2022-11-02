@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
-
-    const [foot, setFoot] = useState(true);
+    /*const [foot, setFoot] = useState(true);
     const handleFooter = () => {
-        if(window.scrollY > 0) {
+        if(window.scrollY) {
             setFoot(false)
         } else {
             setFoot(true);
@@ -16,10 +16,12 @@ const Footer = () => {
         return () => {
             window.removeEventListener('scroll', handleFooter)
         }
-    }, [])
+    }, [])*/
     
+    /* <div className={foot === false ? 'footer-hide' : 'footer'}> */
+
     return (
-    <div className={foot === false ? 'footer-hide' : 'footer'}>
+    <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 2, delay: 2}} className='footer'>
         <nav>
             <ul>
                 <li>
@@ -48,7 +50,7 @@ const Footer = () => {
                 </li>
             </ul>
         </nav>
-    </div>
+    </motion.div>
     )
 };
 
