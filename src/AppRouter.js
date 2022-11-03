@@ -20,7 +20,7 @@ function AppRouter() {
     <BrowserRouter>
       <div className="wrapper">
         <Nav/>
-        <AnimatePresence exitBeforeEnter>
+        <AnimatePresence mode='wait'>
           <Routes>
             <Route path="/" exact element={<PageHome />} />
             <Route path="/about" element={<PageAbout />} />

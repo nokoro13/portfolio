@@ -37,8 +37,10 @@ const PageHome = () => {
                 <div className={name === true ? 'home-title-2' : 'home-title-3'}></div>
                 <div className="home-content" dangerouslySetInnerHTML={{__html:homePage.content.rendered}}>
                 </div>
-                <NavLink to="/work" className='call-to-action'>My Work</NavLink>
-                <NavLink to="/about" className='call-to-action-2'>About</NavLink>
+                <ul className='cta-ul'>
+                <li className='cta-li'><NavLink to="/work" className='call-to-action'>My Work</NavLink></li>
+                <li className='cta-li'><NavLink to="/about" className='call-to-action'>About</NavLink></li>
+                </ul>
                 <img className={name === true ? 'home-image' : 'home-image-hide'} src="portfolio-logo-02.png" alt="img" width={200} height={200}/>
             </>
         : 

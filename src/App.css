@@ -247,7 +247,7 @@ html {
 }
 
 .wp-block-image {
-  transition: .3s ease-out;
+  transition: .6s ease-out;
 }
 
 .work-container:hover .wp-block-image {
@@ -465,16 +465,21 @@ html {
   display: block;
 }
 
-.home-content p {
-  font-size: 1.5rem;
+.home-content {
+  display: flex;
+  flex-direction: column;
+  max-height: 305px;
+  justify-content: space-between;
 }
 
 .home-content p {
+  font-size: 1.5rem;
   margin-left: 10vw;
   max-width: 50vw;
   margin-bottom: 4rem;
+  min-width: 275px;
 }
-
+/*
 .call-to-action {
   background-color: aquamarine;
   color: black;
@@ -502,6 +507,35 @@ html {
   padding-bottom: 1.5rem;
   padding-left: 2rem;
   padding-right: 2rem;
+}*/
+
+/*Call to actions homepage*/
+
+.cta-ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 40px;
+  list-style: none;
+  margin-left: 10vw;
+  position: relative;
+  bottom: -5vh;
+  margin-bottom: 15rem;
+}
+
+.cta-li {
+  margin-left: 0;
+}
+
+.call-to-action {
+  display: flex;
+  background-color: aquamarine;
+  color: black;
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: 1.25rem;
+  margin-top: 5vh;
+  padding: 1.5rem;
 }
 
 .home-wrapper .wp-container-1 {
@@ -628,4 +662,39 @@ html {
   color: white;
   text-decoration: none;
 }
+
+/*For screen sizes above 1280px (macbook air viewport)*/
+
+/*For mobile*/
+
+@media(max-width: 769px) {
+  /*Work container click added*/
+  .work-container:active {
+    transition: .2s ease-in;
+    box-shadow: 0 0 20px 1px aquamarine;
+    border: 2px white solid;
+  }
+}
+
+/*For single page skills animation*/
+
+.detail-content .is-layout-flow.wp-block-group ul {
+  list-style: none;
+}
+
+.skills {
+ display: flex;
+ align-items: center;
+ justify-content: space-around;
+}
+
+.skills p {
+  position: absolute;
+}
+
+
+
+
+
+
 
