@@ -692,6 +692,55 @@ html {
   position: absolute;
 }
 
+.skills-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 100vw;
+  gap: 40px;
+  list-style: none;
+}
+
+/*.skills-list :nth-child(1) {
+  color: #2e7d32;
+}
+
+.skills-list :nth-child(2) {
+  color: #9c27b0;
+}*/
+
+.skills-container {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+}
+
+.skill-item-1 {
+  color: #282c34;
+}
+
+.skill-item-1-animate {
+  transition: .8s ease-in;
+  color: aquamarine;
+}
+
+.skill-item-2 {
+  color: #282c34;
+}
+
+.skill-item-2-animate {
+  transition: 1.6s ease-in;
+  color: white;
+}
+
+.skill-item-3 {
+  color: #282c34;
+}
+
+.skill-item-3-animate {
+  transition: 2.4s ease-in;
+  color: black;
+}
 
 
 

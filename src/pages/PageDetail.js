@@ -9,38 +9,129 @@ export const PageDetail = () => {
     const {title} = location.state;
     const {content} = location.state;
     
-    //0.JS % 1.HTML % 2.CSS %
-    const wooStoreTech  = ['PHP', 'WordPress', 'WooCommerce'];
-    const moovyAppTech  = ['66.6', '8.3', '25.1'];
-    const calcAppTech   = ['React', 'HTML', 'CSS'];    
-    const portfolioTech = ['56.6', '6.6', '37.1'];
+    //(Tech = JS %) (TechTwo = HTML %) (TechThree = CSS %)
 
-    const [skill, setSkill] = useState([]);
+    //WooStore tech % used
+    const wooStoreTech  = ['0']; 
+    const wooStoreTechTwo  = ['0'];
+    const wooStoreTechThree  = ['0'];
+
+    //Moovy App tech % used
+    const moovyAppTech  = ['66.6']; 
+    const moovyAppTechTwo  = ['8.3'];
+    const moovyAppTechThree  = ['25.1'];
+
+    //Calulator App tech % used
+    const calcAppTech   = ['33.3'];  
+    const calcAppTechTwo   = ['33.3'];
+    const calcAppTechThree   = ['33.3'];
+
+    //Portfolio tech % used
+    const portfolioTech = ['56.6']; 
+    const portfolioTechTwo = ['6.6'];
+    const portfolioTechThree = ['37.1'];
+
+    /* States for the tech used */
+    const [skill, setSkill] = useState(0);
+    const [skillTwo, setSkillTwo] = useState(0);
+    const [skillThree, setSkillThree] = useState(0);
     
-    //state easy filter
+    //state easy filter (not being used anymore)
 
-    const first = skill[0];
-    const second = skill[1];
-    const third = skill[2];
+    // const first = skill[0];
+    // const second = skillTwo[0];
+    // const third = skillThree[0];
 
+    /*Goes over all state values (posts) and looks for a title that matches*/
+    /* Once a match is found check if the initial state is less than the targetted value. Add one to the initial state every second until taget is met for each state value (3)*/
 
     const handleSkills = () => {
+        //Handles WooStore Tech/Skills 
         if(location.state.title === 'WooStore') {
-            setSkill(wooStoreTech);
-        } if(location.state.title === 'Moovy App') {
-            setSkill(moovyAppTech);
-        } if(location.state.title === 'Calculator App') {
-            setSkill(calcAppTech);
-        } if(location.state.title === 'Portfolio') {
-            setSkill(portfolioTech);
+            if(skill < wooStoreTech) {
+                const timer = setInterval(()=> {
+                    setSkill((skill)=> (skill >= wooStoreTech ? wooStoreTech : skill + 1));
+                }, 100);
+            } 
+            if(skillTwo < wooStoreTechTwo) {
+                const timer = setInterval(()=> {
+                    setSkillTwo((skill)=> (skill >= wooStoreTechTwo ? wooStoreTechTwo : skill + 1));
+                }, 100);
+            }
+            if(skillThree < wooStoreTechThree) {
+                const timer = setInterval(()=> {
+                    setSkillThree((skill)=> (skill >= wooStoreTechThree ? wooStoreTechThree : skill + 1));
+                }, 100);
+            };
+        } 
+
+        //Handles Moovy App Tech/Skills
+        if(location.state.title === 'Moovy App') {
+            if(skill < moovyAppTech) {
+                const timer = setInterval(()=> {
+                    setSkill((skill)=> (skill >= moovyAppTech ? moovyAppTech : skill + 1));
+                }, 100);
+            }
+            if(skillTwo < moovyAppTechTwo) {
+                const timer = setInterval(()=> {
+                    setSkillTwo((skill)=> (skill >= moovyAppTechTwo ? moovyAppTechTwo : skill + 1));
+                }, 100);
+            }
+            if(skillThree < moovyAppTechThree) {
+                const timer = setInterval(()=> {
+                    setSkillThree((skill)=> (skill >= moovyAppTechThree ? moovyAppTechThree : skill + 1));
+                }, 100);
+            };
+
+        
+        } 
+        
+        //Handles Calculator App Tech/Skills
+        if(location.state.title === 'Calculator App') {
+            if(skill < calcAppTech) {
+                const timer = setInterval(()=> {
+                    setSkill((skill)=> (skill >= calcAppTech ? calcAppTech : skill + 1));
+                }, 100);
+            }
+            if(skill < calcAppTechTwo) {
+                const timer = setInterval(()=> {
+                    setSkillTwo((skill)=> (skill >= calcAppTechTwo ? calcAppTechTwo : skill + 1));
+                }, 100);
+            }
+            if(skill < calcAppTechThree) {
+                const timer = setInterval(()=> {
+                    setSkillThree((skill)=> (skill >= calcAppTechThree ? calcAppTechThree : skill + 1));
+                }, 100);
+            };
+        } 
+        
+        //Handles Portfolio Skills/Tech
+        if(location.state.title === 'Portfolio') {
+            if(skill < portfolioTech) {
+                const timer = setInterval(()=> {
+                    setSkill((skill)=> (skill >= portfolioTech ? portfolioTech : skill + 1));
+                }, 100);
+            }
+            if(skill < portfolioTechTwo) {
+                const timer = setInterval(()=> {
+                    setSkillTwo((skill)=> (skill >= portfolioTechTwo ? portfolioTechTwo : skill + 1));
+                }, 100);
+            }
+            if(skill < portfolioTechThree) {
+                const timer = setInterval(()=> {
+                    setSkillThree((skill)=> (skill >= portfolioTechThree ? portfolioTechThree : skill + 1));
+                }, 100);
+            };
         }
     }
-    
+
     useEffect(() => {
         window.scrollTo(0, 0)
-        window.onload = handleSkills();
-      }, []);
-
+        // window.onload = handleSkills();
+        setTimeout(handleSkills, 100);
+      },[]);
+      
+    
     return(
         <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 2}}>
         <div className='detail-wrapper'>
@@ -49,9 +140,31 @@ export const PageDetail = () => {
                 <h2>{title}</h2>
                 <figure dangerouslySetInnerHTML={{__html: content}}>
                 </figure>
-                <div className='skills'><p>{first}%</p><CircularProgress className='tech-load' style={{ width: 60, height: 60 }} variant='determinate' value={first !== null ? first : '0'} color='success'/></div>
-                <div className='skills'><p>{second}%</p><CircularProgress style={{ width: 60, height: 60 }} variant='determinate' value={second} color='secondary'/></div>
-                <div className='skills'><p>{third}%</p><CircularProgress style={{ width: 60, height: 60 }} variant='determinate' value={third} color='inherit'/></div>
+
+                <div className='skills-container'>
+
+                    <div className='skills'>
+                        <p>{skill}%</p>
+                        <CircularProgress className='tech-load' style={{ width: 60, height: 60, color: 'aquamarine'  }} variant='determinate' value={skill}/>
+                    </div>
+
+                    <div className='skills'>
+                        <p>{skillTwo}%</p>
+                        <CircularProgress style={{ width: 60, height: 60, color: 'white'}} variant='determinate' value={skillTwo} />
+                    </div>
+
+                    <div className='skills'>
+                        <p>{skillThree}%</p>
+                        <CircularProgress style={{ width: 60, height: 60, color: 'black'}} variant='determinate' value={skillThree}/>
+                    </div>
+
+                    <ul className='skills-list'>
+                        <li className={skill === 0 ? 'skill-item-1' : 'skill-item-1-animate'}>JS</li>
+                        <li className={skill === 0 ? 'skill-item-2' : 'skill-item-2-animate'}>HTML</li>
+                        <li className={skill === 0 ? 'skill-item-3' : 'skill-item-3-animate'}>CSS</li>
+                    </ul>
+
+                </div>
             </div>
         </div>
         </motion.div>
@@ -59,3 +172,24 @@ export const PageDetail = () => {
 };
 
 export default PageDetail;
+
+/* 
+ export default function App() {   
+    const [value, setValue] = useState(0);     
+    const animate = () => {
+        if (value < 20) {
+            setValue(value + 0.01);
+            requestAnimationFrame(animate);
+        }   
+    };   
+
+         useEffect(() => {     
+            animate();
+        }, [animate]);   
+            
+            return (    
+                <div className="App">
+                    <h1>{value}</h1>     
+                </div>   ); 
+            }
+*/
