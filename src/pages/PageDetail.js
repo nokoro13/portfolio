@@ -1,6 +1,6 @@
 import {useLocation} from 'react-router-dom';
 import {React, useEffect, useState} from 'react';
-import {filterProps, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 import { CircularProgress } from '@mui/material';
 
@@ -35,9 +35,10 @@ export const PageDetail = () => {
             setSkill(portfolioTech);
         }
     }
-    
+
     useEffect(() => {
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 0)        
+
         window.onload = handleSkills();
       }, []);
 
@@ -49,7 +50,7 @@ export const PageDetail = () => {
                 <h2>{title}</h2>
                 <figure dangerouslySetInnerHTML={{__html: content}}>
                 </figure>
-                <div className='skills'><p>{first}%</p><CircularProgress className='tech-load' style={{ width: 60, height: 60 }} variant='determinate' value={first !== null ? first : '0'} color='success'/></div>
+                <div className='skills'><p>{first}%</p><CircularProgress style={{ width: 60, height: 60 }} variant='determinate' value={first} color='success'/></div>
                 <div className='skills'><p>{second}%</p><CircularProgress style={{ width: 60, height: 60 }} variant='determinate' value={second} color='secondary'/></div>
                 <div className='skills'><p>{third}%</p><CircularProgress style={{ width: 60, height: 60 }} variant='determinate' value={third} color='inherit'/></div>
             </div>
