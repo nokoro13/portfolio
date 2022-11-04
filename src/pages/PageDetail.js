@@ -1,6 +1,6 @@
 import {useLocation} from 'react-router-dom';
 import {React, useEffect, useState} from 'react';
-import {filterProps, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 import { CircularProgress } from '@mui/material';
 
@@ -132,6 +132,7 @@ export const PageDetail = () => {
       },[]);
       
     
+
     return(
         <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 2}}>
         <div className='detail-wrapper'>
@@ -140,6 +141,7 @@ export const PageDetail = () => {
                 <h2>{title}</h2>
                 <figure dangerouslySetInnerHTML={{__html: content}}>
                 </figure>
+
 
                 <div className='skills-container'>
 
@@ -165,6 +167,7 @@ export const PageDetail = () => {
                     </ul>
 
                 </div>
+
             </div>
         </div>
         </motion.div>
