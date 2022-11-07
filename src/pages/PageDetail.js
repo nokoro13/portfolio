@@ -160,8 +160,8 @@ export const PageDetail = () => {
 
                 
                 <h2>{title}</h2>
-                <figure dangerouslySetInnerHTML={{__html: content}}>
-                </figure>
+                <article className='article-width' dangerouslySetInnerHTML={{__html: content}}>
+                </article>
 
 
                 <div className='skills-container'>

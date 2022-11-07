@@ -49,9 +49,9 @@ const Works = () => {
           <motion.section transition={{delay:.1, duration: .5}} initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} key={post.id} className='work-container'>
               <div className='work-card-cover'>
             <h1 className="work-title">{post.title.rendered}</h1>
-            <div className="work-content" dangerouslySetInnerHTML={{__html:post.content.rendered}}>
+            <article className="work-content" dangerouslySetInnerHTML={{__html:post.content.rendered}}>
               
-            </div>
+            </article>
             <div dangerouslySetInnerHTML={{__html:post.excerpt.rendered}}></div>
             <Link className="more-info" to={`detail/${post.id}`} state={{title: post.title.rendered, content: post.content.rendered}}>
                 <p>More Info...</p>

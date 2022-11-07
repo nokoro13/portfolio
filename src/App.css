@@ -397,6 +397,19 @@ html {
   height: inherit;
 }
 
+@media (max-width: 400px) {
+  /* .page-detail .wp-image-83 {
+    width: 100vw;
+  } */
+  .back-to-work {
+    display: none;
+  }
+}
+
+.article-width {
+  max-width: 100vw;
+}
+
 .wp-image-87 {
   width: 100%;
   height: inherit;
@@ -736,6 +749,7 @@ html {
 .skills-list {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   max-width: 100vw;
   gap: 40px;
