@@ -12,6 +12,8 @@ function Filter( {setActiveFilter, activeFilter, setFilter, posts} ) {
     }, [activeFilter])
 
     return(
+        //OnClick sets the activeFilter's state to the appropiate category
+        //Works page then maps over the filter and displays the appropriate posts
         <div className="filter-work">
             <button className={activeFilter === 0 ? 'active' : ''}
             onClick={()=> setActiveFilter(0)}>All</button>

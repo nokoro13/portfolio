@@ -10,31 +10,46 @@ export const PageDetail = () => {
     const {content} = location.state;
     
     //(Tech = JS %) (TechTwo = HTML %) (TechThree = CSS %)
+    //Constants to be used after the handleSkills function runs and finds a match, these constants will be set by the appropriate useState(). After words those state values will be used for the <CircularProgress/> Called in as {skill} {skillTwo} {skillThree}
 
     //WooStore tech % used
-    const wooStoreTech  = ['0']; 
-    const wooStoreTechTwo  = ['0'];
-    const wooStoreTechThree  = ['0'];
+    const wooStoreTech  = 0; 
+    const wooStoreTechTwo  = 0;
+    const wooStoreTechThree  = 100;
 
     //Moovy App tech % used
-    const moovyAppTech  = ['66.6']; 
-    const moovyAppTechTwo  = ['8.3'];
-    const moovyAppTechThree  = ['25.1'];
+    const moovyAppTech  = 66.6; 
+    const moovyAppTechTwo  = 8.3;
+    const moovyAppTechThree  = 25.1;
 
     //Calulator App tech % used
-    const calcAppTech   = ['33.3'];  
-    const calcAppTechTwo   = ['33.3'];
-    const calcAppTechThree   = ['33.3'];
+    const calcAppTech   = 33.3;  
+    const calcAppTechTwo   = 33.3;
+    const calcAppTechThree   = 33.3;
 
     //Portfolio tech % used
-    const portfolioTech = ['56.6']; 
-    const portfolioTechTwo = ['6.6'];
-    const portfolioTechThree = ['37.1'];
+    const portfolioTech = 56.6; 
+    const portfolioTechTwo = 6.6;
+    const portfolioTechThree = 37.1;
 
     /* States for the tech used */
     const [skill, setSkill] = useState(0);
     const [skillTwo, setSkillTwo] = useState(0);
     const [skillThree, setSkillThree] = useState(0);
+
+    //State for outputting code
+
+    const [code,setCode] = useState();
+
+    //Output code
+
+    const firstOutput = 
+        `useEffect(() => {
+            const timeout = setTimeout(handleSkills, 1000);
+            return () => {
+                clearTimeout(timeout);
+            }
+        });`;
     
     //state easy filter (not being used anymore)
 
@@ -42,24 +57,24 @@ export const PageDetail = () => {
     // const second = skillTwo[0];
     // const third = skillThree[0];
 
-    /*Goes over all state values (posts) and looks for a title that matches*/
-    /* Once a match is found check if the initial state is less than the targetted value. Add one to the initial state every second until taget is met for each state value (3)*/
+    /* (handleSkills) Goes over all state values (posts) and looks for a title that matches*/
+    /* (handleSkills) Once a match is found check if the initial state is less than the targetted value. Add one to the initial state every tenth of a second until taget is met for each state value (3)*/
 
     const handleSkills = () => {
         //Handles WooStore Tech/Skills 
         if(location.state.title === 'WooStore') {
             if(skill < wooStoreTech) {
-                const timer = setInterval(()=> {
+                setInterval(()=> {
                     setSkill((skill)=> (skill >= wooStoreTech ? wooStoreTech : skill + 1));
                 }, 100);
             } 
             if(skillTwo < wooStoreTechTwo) {
-                const timer = setInterval(()=> {
+                setInterval(()=> {
                     setSkillTwo((skill)=> (skill >= wooStoreTechTwo ? wooStoreTechTwo : skill + 1));
                 }, 100);
             }
             if(skillThree < wooStoreTechThree) {
-                const timer = setInterval(()=> {
+                setInterval(()=> {
                     setSkillThree((skill)=> (skill >= wooStoreTechThree ? wooStoreTechThree : skill + 1));
                 }, 100);
             };
@@ -68,38 +83,37 @@ export const PageDetail = () => {
         //Handles Moovy App Tech/Skills
         if(location.state.title === 'Moovy App') {
             if(skill < moovyAppTech) {
-                const timer = setInterval(()=> {
+                setInterval(()=> {
                     setSkill((skill)=> (skill >= moovyAppTech ? moovyAppTech : skill + 1));
                 }, 100);
             }
             if(skillTwo < moovyAppTechTwo) {
-                const timer = setInterval(()=> {
+                setInterval(()=> {
                     setSkillTwo((skill)=> (skill >= moovyAppTechTwo ? moovyAppTechTwo : skill + 1));
                 }, 100);
             }
             if(skillThree < moovyAppTechThree) {
-                const timer = setInterval(()=> {
+                setInterval(()=> {
                     setSkillThree((skill)=> (skill >= moovyAppTechThree ? moovyAppTechThree : skill + 1));
                 }, 100);
             };
-
-        
+            setCode(firstOutput);
         } 
         
         //Handles Calculator App Tech/Skills
         if(location.state.title === 'Calculator App') {
             if(skill < calcAppTech) {
-                const timer = setInterval(()=> {
+                setInterval(()=> {
                     setSkill((skill)=> (skill >= calcAppTech ? calcAppTech : skill + 1));
                 }, 100);
             }
             if(skill < calcAppTechTwo) {
-                const timer = setInterval(()=> {
+                setInterval(()=> {
                     setSkillTwo((skill)=> (skill >= calcAppTechTwo ? calcAppTechTwo : skill + 1));
                 }, 100);
             }
             if(skill < calcAppTechThree) {
-                const timer = setInterval(()=> {
+                setInterval(()=> {
                     setSkillThree((skill)=> (skill >= calcAppTechThree ? calcAppTechThree : skill + 1));
                 }, 100);
             };
@@ -108,28 +122,32 @@ export const PageDetail = () => {
         //Handles Portfolio Skills/Tech
         if(location.state.title === 'Portfolio') {
             if(skill < portfolioTech) {
-                const timer = setInterval(()=> {
+                setInterval(()=> {
                     setSkill((skill)=> (skill >= portfolioTech ? portfolioTech : skill + 1));
-                }, 100);
+                }, 100);  
             }
             if(skill < portfolioTechTwo) {
-                const timer = setInterval(()=> {
+                setInterval(()=> {
                     setSkillTwo((skill)=> (skill >= portfolioTechTwo ? portfolioTechTwo : skill + 1));
                 }, 100);
             }
             if(skill < portfolioTechThree) {
-                const timer = setInterval(()=> {
+                setInterval(()=> {
                     setSkillThree((skill)=> (skill >= portfolioTechThree ? portfolioTechThree : skill + 1));
                 }, 100);
             };
         }
     }
 
+    //After one second call the handleSkills function
     useEffect(() => {
-        window.scrollTo(0, 0)
-        // window.onload = handleSkills();
-        setTimeout(handleSkills, 100);
-      },[]);
+        //window.scrollTo(0, 0); have to find a new way to scrool to top on page refresh
+        //window.onload = handleSkills();
+        const timeout = setTimeout(handleSkills, 1000);
+        return () => {
+            clearTimeout(timeout);
+        }
+      });
       
     
 
@@ -138,6 +156,9 @@ export const PageDetail = () => {
         <div className='detail-wrapper'>
             <Link to='/work' className='back-to-work'> Back </Link>
             <div className='detail-content'>
+
+
+                
                 <h2>{title}</h2>
                 <figure dangerouslySetInnerHTML={{__html: content}}>
                 </figure>
@@ -161,10 +182,16 @@ export const PageDetail = () => {
                     </div>
 
                     <ul className='skills-list'>
-                        <li className={skill === 0 ? 'skill-item-1' : 'skill-item-1-animate'}>JS</li>
-                        <li className={skill === 0 ? 'skill-item-2' : 'skill-item-2-animate'}>HTML</li>
-                        <li className={skill === 0 ? 'skill-item-3' : 'skill-item-3-animate'}>CSS</li>
+                        <li className={skill      === 0 ? 'skill-item-1' : 'skill-item-1-animate'}>JS</li>
+                        <li className={skillTwo   === 0 ? 'skill-item-2' : 'skill-item-2-animate'}>HTML</li>
+                        <li className={skillThree === 0 ? 'skill-item-3' : 'skill-item-3-animate'}>CSS</li>
                     </ul>
+
+                    <pre className='language-jsx'>
+                        <code className='language-jsx'>
+                            {code}
+                        </code>
+                    </pre>
 
                 </div>
 
