@@ -224,13 +224,13 @@ html {
   text-align: center;
   color: white;
   transition: .6s ease-out;
-  box-shadow: 0 0 10px 1px white;
+  box-shadow: 0 0 5px 1px white;
 }
 
 .work-container:hover {
   /*transform: scale(1.05);*/
   transition: .2s ease-in;
-  box-shadow: 0 0 20px 1px aquamarine;
+  box-shadow: 0 0 10px 1px aquamarine;
   border: 2px white solid;
 }
 
@@ -356,6 +356,17 @@ html {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+}
+
+.detail-content article p {
+  line-height: 2.5;
+  /* background-color: hsl(160, 100%, 75%, 10%); */
+  border: 1px solid black;
+  box-shadow: 0 0 4px 1px aquamarine;
+  border-radius: 5px;
+  padding: 1rem;
+  max-width: 90vw;
+  margin: auto;
 }
 
 .back-to-work {
@@ -750,10 +761,18 @@ html {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 100vw;
-  gap: 40px;
+  padding: 0;
+  margin: auto;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 1rem;
+  width: 180px;
   list-style: none;
+}
+
+.skills-list li {
+  width: 60px;
+  text-align: center;
 }
 
 /*.skills-list :nth-child(1) {

@@ -33,6 +33,7 @@ export const PageDetail = () => {
     const portfolioTechThree = 37.1;
 
     /* States for the tech used */
+    //JS, HTML, CSS
     const [skill, setSkill] = useState(0);
     const [skillTwo, setSkillTwo] = useState(0);
     const [skillThree, setSkillThree] = useState(0);
@@ -141,15 +142,14 @@ export const PageDetail = () => {
 
     //After one second call the handleSkills function
     useEffect(() => {
-        //window.scrollTo(0, 0); have to find a new way to scrool to top on page refresh
+        window.scrollTo(0, 0); //may need to fix
         //window.onload = handleSkills();
         const timeout = setTimeout(handleSkills, 1000);
         return () => {
             clearTimeout(timeout);
         }
-      });
-      
-    
+        //eslint-disable-next-line
+      },[]);//may need to fix
 
     return(
         <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 2}}>
@@ -159,12 +159,38 @@ export const PageDetail = () => {
 
 
                 
-                <h2>{title}</h2>
+                <h1>{title}</h1>
+
+                <div className='skills-container'>
+
+                    <div className='skills'>
+                        <p>{skill}%</p>
+                        <CircularProgress className='tech-load' style={{ width: 60, height: 60, color: 'aquamarine'  }} variant='determinate' value={skill}/>
+                    </div>
+
+                    <div className='skills'>
+                        <p>{skillTwo}%</p>
+                        <CircularProgress style={{ width: 60, height: 60, color: 'white'}} variant='determinate' value={skillTwo} />
+                    </div>
+
+                    <div className='skills'>
+                        <p>{skillThree}%</p>
+                        <CircularProgress style={{ width: 60, height: 60, color: 'black'}} variant='determinate' value={skillThree}/>
+                    </div>
+
+                </div>
+
+                <ul className='skills-list'>
+                        <li className={skill      === 0 ? 'skill-item-1' : 'skill-item-1-animate'}>JS</li>
+                        <li className={skillTwo   === 0 ? 'skill-item-2' : 'skill-item-2-animate'}>HTML</li>
+                        <li className={skillThree === 0 ? 'skill-item-3' : 'skill-item-3-animate'}>CSS</li>
+                </ul>
+
                 <article className='article-width' dangerouslySetInnerHTML={{__html: content}}>
                 </article>
 
 
-                <div className='skills-container'>
+                {/* <div className='skills-container'>
 
                     <div className='skills'>
                         <p>{skill}%</p>
@@ -187,13 +213,13 @@ export const PageDetail = () => {
                         <li className={skillThree === 0 ? 'skill-item-3' : 'skill-item-3-animate'}>CSS</li>
                     </ul>
 
-                    <pre className='language-jsx'>
+                </div> */}
+
+                <pre className='language-jsx'>
                         <code className='language-jsx'>
                             {code}
                         </code>
-                    </pre>
-
-                </div>
+                </pre>
 
             </div>
         </div>
