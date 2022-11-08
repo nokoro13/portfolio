@@ -4,6 +4,7 @@ import { useEffect, useState} from 'react';
 import Loading from '../components/Loading';
 import { NavLink } from 'react-router-dom';
 import {motion} from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 
 const PageHome = () => {
 
@@ -27,6 +28,14 @@ const PageHome = () => {
     },[name]);
 
     return (
+        <>
+
+        <Helmet>
+            <title>Nokoro | Web Developer</title>
+            <meta name="description" content="Welcome, and thank you for checking out my portfolio! Hope you can find some inspiration throughout my work/projects below"/>
+        </Helmet>
+
+        <>
         
         <motion.div className='home-wrapper' initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 2}}>
             <div className='home-header'>
@@ -49,6 +58,8 @@ const PageHome = () => {
         </>
             </div>
         </motion.div>
+        </>
+        </>
     );
 
 };

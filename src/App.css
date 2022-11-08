@@ -225,6 +225,8 @@ html {
   color: white;
   transition: .6s ease-out;
   box-shadow: 0 0 5px 1px white;
+  /* position: relative;
+  z-index: 1000; */
 }
 
 .work-container:hover {
@@ -378,7 +380,6 @@ html {
   color: aquamarine;
   border-radius: 3px;
   padding: .5rem;
-  font-weight: bold;
 }
 
 /*Img sizes*/
@@ -733,12 +734,22 @@ html {
 /*For mobile*/
 
 @media(max-width: 769px) {
-  /*Work container click added*/
+  /* Work container click added
   .work-container:active {
     transition: .2s ease-in;
     box-shadow: 0 0 20px 1px aquamarine;
     border: 2px white solid;
+  } */
+
+  .more-info {
+    color: aquamarine;
   }
+}
+
+@media (max-width: 1000px) {
+.detail-content {
+  max-width: 90vw;
+}
 }
 
 /*For single page skills animation*/
@@ -773,6 +784,18 @@ html {
 .skills-list li {
   width: 60px;
   text-align: center;
+}
+
+/* Code snippet */
+
+.code-snippet-wrapper {
+font-size: 16px;
+display: flex;
+}
+
+.code-snippet {
+  display: flex;
+  margin: auto;
 }
 
 /*.skills-list :nth-child(1) {

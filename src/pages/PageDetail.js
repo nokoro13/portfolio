@@ -3,6 +3,7 @@ import {React, useEffect, useState} from 'react';
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 import { CircularProgress } from '@mui/material';
+import { Helmet } from 'react-helmet-async';
 
 export const PageDetail = () => {
     let location = useLocation();
@@ -18,9 +19,9 @@ export const PageDetail = () => {
     const wooStoreTechThree  = 100;
 
     //Moovy App tech % used
-    const moovyAppTech  = 66.6; 
-    const moovyAppTechTwo  = 8.3;
-    const moovyAppTechThree  = 25.1;
+    const moovyAppTech  = 67; 
+    const moovyAppTechTwo  = 8;
+    const moovyAppTechThree  = 25;
 
     //Calulator App tech % used
     const calcAppTech   = 33.3;  
@@ -28,9 +29,9 @@ export const PageDetail = () => {
     const calcAppTechThree   = 33.3;
 
     //Portfolio tech % used
-    const portfolioTech = 56.6; 
-    const portfolioTechTwo = 6.6;
-    const portfolioTechThree = 37.1;
+    const portfolioTech = 62; 
+    const portfolioTechTwo = 5;
+    const portfolioTechThree = 33;
 
     /* States for the tech used */
     //JS, HTML, CSS
@@ -41,6 +42,9 @@ export const PageDetail = () => {
     //State for outputting code
 
     const [code,setCode] = useState();
+
+    //handles the meta content
+    const [meta, setMeta] = useState();
 
     //Output code
 
@@ -79,6 +83,8 @@ export const PageDetail = () => {
                     setSkillThree((skill)=> (skill >= wooStoreTechThree ? wooStoreTechThree : skill + 1));
                 }, 100);
             };
+            // setCode();
+            setMeta('A Full eCommerce store built using WordPress, WooCommerce, and a variety of plugins.');
         } 
 
         //Handles Moovy App Tech/Skills
@@ -98,7 +104,12 @@ export const PageDetail = () => {
                     setSkillThree((skill)=> (skill >= moovyAppTechThree ? moovyAppTechThree : skill + 1));
                 }, 100);
             };
+            
+            //Outputting React code snippets
             setCode(firstOutput);
+            
+            //Setting the meta content 
+            setMeta('Movie database application made with React.js, with the use of TMBD’s API. Fetching data from TMBD once to display movies with their content, organized by categories such as popular, now playing, top rated, and upcoming.');
         } 
         
         //Handles Calculator App Tech/Skills
@@ -118,6 +129,8 @@ export const PageDetail = () => {
                     setSkillThree((skill)=> (skill >= calcAppTechThree ? calcAppTechThree : skill + 1));
                 }, 100);
             };
+            // setCode();
+            setMeta('Calculator app built in React for simple quick math equations.');
         } 
         
         //Handles Portfolio Skills/Tech
@@ -137,6 +150,8 @@ export const PageDetail = () => {
                     setSkillThree((skill)=> (skill >= portfolioTechThree ? portfolioTechThree : skill + 1));
                 }, 100);
             };
+            // setCode();
+            setMeta('Portfolio website, a headless CMS built using React and WordPress’ REST API.');
         }
     }
 
@@ -151,7 +166,21 @@ export const PageDetail = () => {
         //eslint-disable-next-line
       },[]);//may need to fix
 
+      
+
     return(
+
+        <>
+
+        <Helmet prioritizeSeoTags={true}>
+
+        <title>Nokoro | {title}</title>
+        <meta name="description" content={meta}/>
+
+        </Helmet>
+
+        <>
+
         <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 2}}>
         <div className='detail-wrapper'>
             <Link to='/work' className='back-to-work'> Back </Link>
@@ -215,15 +244,20 @@ export const PageDetail = () => {
 
                 </div> */}
 
-                <pre className='language-jsx'>
-                        <code className='language-jsx'>
+            </div>
+
+                <section className='code-snippet-wrapper'>
+                <pre className='language-jsx code-snippet'>
+                        <code className='language-jsx code-snippet'>
                             {code}
                         </code>
                 </pre>
-
-            </div>
+                </section>
         </div>
+        
         </motion.div>
+        </>
+        </>
     );                                              
 };
 
