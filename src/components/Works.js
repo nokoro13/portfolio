@@ -18,7 +18,7 @@ const Works = () => {
     const [activeFilter, setActiveFilter] = useState(0);
 
     //Path to all posts from my live wordpress site using the REST API
-    const restPath = 'https://nokoro.ca/portfolio/wp-json/wp/v2/posts?_embed';
+    const restPath = `https://nokoro.ca/portfolio/wp-json/wp/v2/posts?_embed`;
     
     //Fetching the data from the rest API
     //Sets all posts
@@ -34,7 +34,6 @@ const Works = () => {
             setPostLoaded(true);
         })
     }, [restPath]);
-
 
     return (
       //Filter component called in and specified states passed in as props
@@ -54,7 +53,7 @@ const Works = () => {
               
             </article>
             <div dangerouslySetInnerHTML={{__html:post.excerpt.rendered}}></div>
-            <Link className="more-info" to={`detail/${post.id}`} state={{title: post.title.rendered, content: post.content.rendered , meta: post.excerpt.rendered}}>
+            <Link className="more-info" to={`detail/${post.slug}`} state={{title: post.title.rendered, content: post.content.rendered}}>
                 <p>More Info...</p>
             </Link>
             
