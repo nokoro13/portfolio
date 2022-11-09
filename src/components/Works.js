@@ -53,7 +53,7 @@ const Works = () => {
               
             </article>
             <div dangerouslySetInnerHTML={{__html:post.excerpt.rendered}}></div>
-            <Link className="more-info" to={`detail/${post.slug}`} state={{title: post.title.rendered, content: post.content.rendered}}>
+            <Link className="more-info" to={`detail/${post.slug}`} state={{title: post.title.rendered, content: post.content.rendered, id: post.id}} >
                 <p>More Info...</p>
             </Link>
             
@@ -72,3 +72,6 @@ const Works = () => {
 };
 
 export default Works;
+
+// Wordpress == 1
+// React == 3

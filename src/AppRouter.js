@@ -25,7 +25,7 @@ function AppRouter() {
             <Route path="/" exact element={<PageHome />} />
             <Route path="/about" element={<PageAbout />} />
             <Route path="/work" element={<PageWork />} />
-            <Route path="work/detail/:slug" element={<PageDetail />} />
+            <Route path="work/detail/:slug/" element={<PageDetail />} />
           </Routes>
         </AnimatePresence>
         <Footer/>

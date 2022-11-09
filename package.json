@@ -13,6 +13,7 @@
     "bootstrap-icons": "^1.9.1",
     "framer-motion": "^7.6.1",
     "hamburger-react": "^2.5.0",
+    "prismjs": "^1.29.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
@@ -24,9 +25,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-scripts-rewired start",
+    "build": "react-scripts-rewired build",
+    "test": "react-scripts-rewired test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -46,5 +47,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "babel-plugin-prismjs": "^2.1.0",
+    "customize-cra": "^1.0.0",
+    "react-app-rewired": "^2.2.1"
   }
 }

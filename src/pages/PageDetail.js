@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 import { CircularProgress } from '@mui/material';
 import { Helmet } from 'react-helmet-async';
+import Snippet from '../components/Snippet';
 
 export const PageDetail = () => {
     let location = useLocation();
     const {title} = location.state;
     const {content} = location.state;
-    
+    const {id} =location.state;
+
     //(Tech = JS %) (TechTwo = HTML %) (TechThree = CSS %)
     //Constants to be used after the handleSkills function runs and finds a match, these constants will be set by the appropriate useState(). After words those state values will be used for the <CircularProgress/> Called in as {skill} {skillTwo} {skillThree}
 
@@ -39,31 +41,11 @@ export const PageDetail = () => {
     const [skillTwo, setSkillTwo] = useState(0);
     const [skillThree, setSkillThree] = useState(0);
 
-    //State for outputting code
-
-    const [code,setCode] = useState();
-
     //handles the meta content
     const [meta, setMeta] = useState();
 
-    //Output code
-
-    const firstOutput = 
-        `useEffect(() => {
-            const timeout = setTimeout(handleSkills, 1000);
-            return () => {
-                clearTimeout(timeout);
-            }
-        });`;
-    
-    //state easy filter (not being used anymore)
-
-    // const first = skill[0];
-    // const second = skillTwo[0];
-    // const third = skillThree[0];
-
     /* (handleSkills) Goes over all state values (posts) and looks for a title that matches*/
-    /* (handleSkills) Once a match is found check if the initial state is less than the targetted value. Add one to the initial state every tenth of a second until taget is met for each state value (3)*/
+    /* (handleSkills) Once a match is found check if the initial state is less than the targetted value. Add 1 to the initial state every 1/10 of a second until taget is met for each state value (3)*/
 
     const handleSkills = () => {
         //Handles WooStore Tech/Skills 
@@ -85,6 +67,7 @@ export const PageDetail = () => {
             };
             // setCode();
             setMeta('A Full eCommerce store built using WordPress, WooCommerce, and a variety of plugins.');
+            console.log(id);
         } 
 
         //Handles Moovy App Tech/Skills
@@ -105,11 +88,11 @@ export const PageDetail = () => {
                 }, 100);
             };
             
-            //Outputting React code snippets
-            setCode(firstOutput);
-            
             //Setting the meta content 
             setMeta('Movie database application made with React.js, with the use of TMBD’s API. Fetching data from TMBD once to display movies with their content, organized by categories such as popular, now playing, top rated, and upcoming.');
+            // const newLocation = location.state;
+            // console.log(newLocation);
+            console.log(id);
         } 
         
         //Handles Calculator App Tech/Skills
@@ -163,6 +146,7 @@ export const PageDetail = () => {
         return () => {
             clearTimeout(timeout);
         }
+        
         //eslint-disable-next-line
       },[]);//may need to fix
 
@@ -173,10 +157,8 @@ export const PageDetail = () => {
         <>
 
         <Helmet prioritizeSeoTags={true}>
-
         <title>Nokoro | {title}</title>
         <meta name="description" content={meta}/>
-
         </Helmet>
 
         <>
@@ -218,41 +200,11 @@ export const PageDetail = () => {
                 <article className='article-width' dangerouslySetInnerHTML={{__html: content}}>
                 </article>
 
-
-                {/* <div className='skills-container'>
-
-                    <div className='skills'>
-                        <p>{skill}%</p>
-                        <CircularProgress className='tech-load' style={{ width: 60, height: 60, color: 'aquamarine'  }} variant='determinate' value={skill}/>
-                    </div>
-
-                    <div className='skills'>
-                        <p>{skillTwo}%</p>
-                        <CircularProgress style={{ width: 60, height: 60, color: 'white'}} variant='determinate' value={skillTwo} />
-                    </div>
-
-                    <div className='skills'>
-                        <p>{skillThree}%</p>
-                        <CircularProgress style={{ width: 60, height: 60, color: 'black'}} variant='determinate' value={skillThree}/>
-                    </div>
-
-                    <ul className='skills-list'>
-                        <li className={skill      === 0 ? 'skill-item-1' : 'skill-item-1-animate'}>JS</li>
-                        <li className={skillTwo   === 0 ? 'skill-item-2' : 'skill-item-2-animate'}>HTML</li>
-                        <li className={skillThree === 0 ? 'skill-item-3' : 'skill-item-3-animate'}>CSS</li>
-                    </ul>
-
-                </div> */}
-
             </div>
-
-                <section className='code-snippet-wrapper'>
-                <pre className='language-jsx code-snippet'>
-                        <code className='language-jsx code-snippet'>
-                            {code}
-                        </code>
-                </pre>
-                </section>
+            <section className='snippet-container'>
+                <Snippet newLocation={location} id={id}/>
+            </section>
+                
         </div>
         
         </motion.div>
@@ -262,24 +214,3 @@ export const PageDetail = () => {
 };
 
 export default PageDetail;
-
-/* 
- export default function App() {   
-    const [value, setValue] = useState(0);     
-    const animate = () => {
-        if (value < 20) {
-            setValue(value + 0.01);
-            requestAnimationFrame(animate);
-        }   
-    };   
-
-         useEffect(() => {     
-            animate();
-        }, [animate]);   
-            
-            return (    
-                <div className="App">
-                    <h1>{value}</h1>     
-                </div>   ); 
-            }
-*/
