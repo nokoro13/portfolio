@@ -18,7 +18,7 @@ export const PageDetail = () => {
     //WooStore tech % used
     const wooStoreTech  = 0; 
     const wooStoreTechTwo  = 0;
-    const wooStoreTechThree  = 100;
+    const wooStoreTechThree  = 0;
 
     //Moovy App tech % used
     const moovyAppTech  = 67; 
@@ -176,25 +176,25 @@ export const PageDetail = () => {
 
                     <div className='skills'>
                         <p>{skill}%</p>
-                        <CircularProgress className='tech-load' style={{ width: 60, height: 60, color: 'aquamarine'  }} variant='determinate' value={skill}/>
+                        <CircularProgress className='tech-load' style={{ width: 60, height: 60, color: '#f1e05a '  }} variant='determinate' value={skill}/>
                     </div>
 
                     <div className='skills'>
                         <p>{skillTwo}%</p>
-                        <CircularProgress style={{ width: 60, height: 60, color: 'white'}} variant='determinate' value={skillTwo} />
+                        <CircularProgress style={{ width: 60, height: 60, color: '#e34c26 '}} variant='determinate' value={skillTwo} />
                     </div>
 
                     <div className='skills'>
                         <p>{skillThree}%</p>
-                        <CircularProgress style={{ width: 60, height: 60, color: 'black'}} variant='determinate' value={skillThree}/>
+                        <CircularProgress style={{ width: 60, height: 60, color: 'aquamarine'}} variant='determinate' value={skillThree}/>
                     </div>
 
                 </div>
 
                 <ul className='skills-list'>
-                        <li className={skill      === 0 ? 'skill-item-1' : 'skill-item-1-animate'}>JS</li>
-                        <li className={skillTwo   === 0 ? 'skill-item-2' : 'skill-item-2-animate'}>HTML</li>
-                        <li className={skillThree === 0 ? 'skill-item-3' : 'skill-item-3-animate'}>CSS</li>
+                    <li className={skill      === 0 ? 'skill-item-1' : 'skill-item-1-animate'}>JS</li>
+                    <li className={skillTwo   === 0 ? 'skill-item-2' : 'skill-item-2-animate'}>HTML</li>
+                    <li className={skillThree === 0 ? 'skill-item-3' : 'skill-item-3-animate'}>CSS</li>
                 </ul>
 
                 <article className='article-width' dangerouslySetInnerHTML={{__html: content}}>

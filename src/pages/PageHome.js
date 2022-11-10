@@ -45,12 +45,18 @@ const PageHome = () => {
                 <h1 className='home-title' onMouseEnter={() => setName(true)}>{homePage.title.rendered}</h1>
                 <div className={name === true ? 'home-title-2' : 'home-title-3'}></div>
                 <div className="home-content" dangerouslySetInnerHTML={{__html:homePage.content.rendered}}>
+                    
                 </div>
+                <div className='home-image-container'>
+
+                {/* <img className={name === true ? 'home-image' : 'home-image-hide'} src="portfolio-logo-02.png" alt="img" width={200} height={200}/> */}
+
                 <ul className='cta-ul'>
-                <li className='cta-li'><NavLink to="/work" className='call-to-action'>My Work</NavLink></li>
-                <li className='cta-li'><NavLink to="/about" className='call-to-action'>About</NavLink></li>
+                    <li className='cta-li'><NavLink to="/work" className='call-to-action'>My Work</NavLink></li>
+                    <li className='cta-li'><NavLink to="/about" className='call-to-action'>About</NavLink></li>
                 </ul>
-                <img className={name === true ? 'home-image' : 'home-image-hide'} src="portfolio-logo-02.png" alt="img" width={200} height={200}/>
+                
+                </div>
             </>
         : 
             <Loading />

@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import Prism from 'prismjs';
 
-const Snippet = ({code, language, id}) => {
+const Snippet = ({code, code2, language, id}) => {
 
     //Var out side of conditions because all code being displayed is all JS
     language = 'javascript';
@@ -9,7 +9,7 @@ const Snippet = ({code, language, id}) => {
     //Match the returned id to the proper code
     if(id === 27) { //27 === Moovy
         code = 
-        `- Page Home ->
+        `- PageHome.js ->
 
 const [favs, setFavs] = useState( localStorage.getItem('MY_FAVOURITE_MOVIES')===  null ? []:
 JSON.parse(localStorage.getItem('MY_FAVOURITE_MOVIES') ) );
@@ -28,10 +28,12 @@ useEffect(() => {
     window.localStorage.setItem('MY_FAVOURITE_MOVIES', JSON.stringify(favs));
     console.log(favs);
 }, [favs]);`;
+code2 = ``;
     } else {
 
         if(id === 49) {
             code =  `Your Snippets are working`;
+            code2 = ``;
         } else {
 
             if(id === 1) {
@@ -68,7 +70,81 @@ function Filter( {setActiveFilter, activeFilter, setFilter, posts} ) {
         )
     }
                 
-    export default Filter;`;
+export default Filter;`;
+    code2 = 
+    `- Works.js ->
+
+const Works = () => {
+    //takes care of all posts
+        const [posts, setPosts] = useState([]);
+
+    //Takes care of posts being rendered
+        const [postLoaded, setPostLoaded] = useState(false);
+
+    //Takes care of all the posts that fall under the current category 
+        const [filter, setFilter] = useState([]);
+
+    //Takes care of determining which category is selected (0) is the default and is === to all categories
+        const [activeFilter, setActiveFilter] = useState(0);
+
+        const restPath = 'https://nokoro.ca/portfolio/wp-json/wp/v2/posts?_embed';
+    
+    //Fetching the data from the rest API
+    //Sets all posts
+    //Sets all posts under specified category
+    //Sets the filter for the category specified
+    useEffect(() => {
+        fetch(restPath)
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data);
+            setPosts(data);
+            setFilter(data);
+            setPostLoaded(true);
+        })
+    }, [restPath]);
+
+    return (
+        //Filter component called in and specified states passed in as props
+
+        <>
+        <Filter posts={posts} setFilter={setFilter} activeFilter={activeFilter} setActiveFilter={setActiveFilter}/>
+        { postLoaded ?
+  
+          <>
+      
+        <>
+          {filter.map(post => 
+            <motion.section transition={{delay:.1, duration: .5}} initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} key={post.id} className='work-container'>
+                
+              <h1 className="work-title">{post.title.rendered}</h1>
+              <article className="work-content" dangerouslySetInnerHTML={{__html:post.content.rendered}}>
+                
+              </article>
+              <div dangerouslySetInnerHTML={{__html:post.excerpt.rendered}}></div>
+              <Link className="more-info" to={'detail/{post.slug}'} state={{title: post.title.rendered, content: post.content.rendered, id: post.id}} >
+                  <p>More Info...</p>
+              </Link>
+              
+              
+            </motion.section>
+            )}
+            </>
+        </>
+    : 
+        <Loading />
+    }
+    </>
+   
+        );
+};
+
+export default Works;`;
+    
+            }
+            if ( id === 5) {
+                code = ``;
+                code2 = ``;
             }
         }
     }
@@ -78,10 +154,20 @@ function Filter( {setActiveFilter, activeFilter, setFilter, posts} ) {
     },[]);
 
     return (
+        <>
+
+        <h3>{id === 1 ? 'Filtering' : '' || id === 27 ? 'Setting and Getting Local Storage | Favourites' : ''}</h3>
         <pre>
-            <code children={code} className={`language-${language}`}/>
-            <p className="copy-clipboard" onClick={() => {navigator.clipboard.writeText(code)}}>Copy</p>
+            <code children={code} className={code !== '' ? `language-${language}` : ''}/>
+            <p className={code === '' ? 'hide-copy' : "copy-clipboard"} onClick={() => {navigator.clipboard.writeText(code)}}>Copy</p>
         </pre>
+        
+        <h3>{id === 1 ? 'Filtering Continued' : ''}</h3>
+        <pre>
+            <code children={code2} className={code2 !== '' ? `language-${language}` : ''}/>
+            <p className={code2 === '' ? 'hide-copy' : "copy-clipboard"} onClick={() => {navigator.clipboard.writeText(code2)}}>Copy</p>
+        </pre>
+        </>
 
     )
 }
