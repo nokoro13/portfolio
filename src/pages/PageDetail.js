@@ -8,7 +8,7 @@ import Snippet from '../components/Snippet';
 
 export const PageDetail = () => {
     let location = useLocation();
-    const {title} = location.state;
+    const {title}= location.state;
     const {content} = location.state;
     const {id} =location.state;
 
@@ -176,7 +176,7 @@ export const PageDetail = () => {
 
                     <div className='skills'>
                         <p>{skill}%</p>
-                        <CircularProgress className='tech-load' style={{ width: 60, height: 60, color: '#f1e05a '  }} variant='determinate' value={skill}/>
+                        <CircularProgress className='tech-load' style={{ width: 60, height: 60, color: 'aquamarine '  }} variant='determinate' value={skill}/>
                     </div>
 
                     <div className='skills'>
@@ -186,7 +186,7 @@ export const PageDetail = () => {
 
                     <div className='skills'>
                         <p>{skillThree}%</p>
-                        <CircularProgress style={{ width: 60, height: 60, color: 'aquamarine'}} variant='determinate' value={skillThree}/>
+                        <CircularProgress style={{ width: 60, height: 60, color: '#cc99cd'}} variant='determinate' value={skillThree}/>
                     </div>
 
                 </div>

@@ -43,13 +43,13 @@
 
 main {
   background-color: #282c34;
-  font-family: 'Roboto', 'sans-serif';
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', 'sans-serif';
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 html {
@@ -203,6 +203,7 @@ html {
   margin-left: 10vw;
   margin-top: 5vh;
   margin-bottom: 0;
+  font-weight: 700;
 }
 
 .work-underline {
@@ -595,6 +596,7 @@ html {
   gap: 40px;
   list-style: none;
   margin-left: 10vw;
+  margin-bottom: 4rem;
   position: relative;
   padding: 0;
   /* bottom: -5vh;
@@ -811,18 +813,18 @@ html {
 }
 
 .skill-item-1 {
-  color: aquamarine;
+  color: #cc99cd;
   border-right: 1px solid white;
 }
 
 .skill-item-1-animate {
   transition: .8s ease-in;
-  color: #f1e05a;
+  color: aquamarine;
   border-right: 1px solid white;
 }
 
 .skill-item-2 {
-  color: #f1e05a;
+  color: aquamarine;
 }
 
 .skill-item-2-animate {
@@ -837,7 +839,7 @@ html {
 
 .skill-item-3-animate {
   transition: 2.4s ease-in;
-  color: aquamarine;
+  color: #cc99cd;
   border-left: 1px solid white;
 }
 
@@ -892,12 +894,20 @@ html {
   display: none;
  }
 
+ .code-title {
+   color: #f08d49;
+ }
+
+ .code-title-2 {
+   color: #cc99cd;
+ }
+
  pre[class*="language-"] {
    padding: 1em;
    margin: .5em 0;
    overflow: auto;
    display: flex;
-   margin: auto;
+   /* margin: auto; */
  }
  
  :not(pre) > code[class*="language-"],
@@ -990,8 +1000,3 @@ html {
  }
 
  /* babel Prism.js */
-
-
-
-
-

@@ -156,13 +156,13 @@ export default Works;`;
     return (
         <>
 
-        <h3>{id === 1 ? 'Filtering' : '' || id === 27 ? 'Setting and Getting Local Storage | Favourites' : ''}</h3>
+        <h3 className="code-title">{id === 1 ? 'Filtering' : '' || id === 27 ? 'Setting and Getting Local Storage | Favourites' : ''}</h3>
         <pre>
             <code children={code} className={code !== '' ? `language-${language}` : ''}/>
             <p className={code === '' ? 'hide-copy' : "copy-clipboard"} onClick={() => {navigator.clipboard.writeText(code)}}>Copy</p>
         </pre>
         
-        <h3>{id === 1 ? 'Filtering Continued' : ''}</h3>
+        <h3 className="code-title">{id === 1 ? 'Filtering Continued' : ''}</h3>
         <pre>
             <code children={code2} className={code2 !== '' ? `language-${language}` : ''}/>
             <p className={code2 === '' ? 'hide-copy' : "copy-clipboard"} onClick={() => {navigator.clipboard.writeText(code2)}}>Copy</p>

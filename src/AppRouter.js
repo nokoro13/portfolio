@@ -17,7 +17,7 @@ import { AnimatePresence } from 'framer-motion';
 
 function AppRouter() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/'>
       <div className="wrapper">
         <Nav/>
         <AnimatePresence mode='wait'>
