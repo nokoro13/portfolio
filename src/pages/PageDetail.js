@@ -26,9 +26,9 @@ export const PageDetail = () => {
     const moovyAppTechThree  = 25;
 
     //Calulator App tech % used
-    const calcAppTech   = 33.3;  
-    const calcAppTechTwo   = 33.3;
-    const calcAppTechThree   = 33.3;
+    const calcAppTech   = 50;  
+    const calcAppTechTwo   = 27;
+    const calcAppTechThree   = 23;
 
     //Portfolio tech % used
     const portfolioTech = 62; 
@@ -176,12 +176,12 @@ export const PageDetail = () => {
 
                     <div className='skills'>
                         <p>{skill}%</p>
-                        <CircularProgress className='tech-load' style={{ width: 60, height: 60, color: 'aquamarine '  }} variant='determinate' value={skill}/>
+                        <CircularProgress className='tech-load' style={{ width: 60, height: 60, color: 'aquamarine ', position: 'relative'  }} variant='determinate' value={skill}/>
                     </div>
 
                     <div className='skills'>
                         <p>{skillTwo}%</p>
-                        <CircularProgress style={{ width: 60, height: 60, color: '#e34c26 '}} variant='determinate' value={skillTwo} />
+                        <CircularProgress style={{ width: 60, height: 60, color: '#f08d49 '}} variant='determinate' value={skillTwo} />
                     </div>
 
                     <div className='skills'>

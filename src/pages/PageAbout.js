@@ -1,31 +1,45 @@
 // Page - Home
 
-import { useEffect } from 'react';
-
+import { useEffect, useState } from 'react';
+import Loading from '../components/Loading';
 
 const PageAbout = () => {
 
+    const restPath = 'https://nokoro.ca/portfolio/wp-json/wp/v2/pages/172';
+
+    const [aboutPage, setAboutPage] = useState([]);
+    const [postLoaded, setPostLoaded] = useState(false);
+    
     useEffect(() => {
-		
-	}, []);
+        fetch(restPath)
+        .then((response) => response.json())
+        .then((data) => {
+            setAboutPage(data);
+            setPostLoaded(true);
+            console.log(data);
+        })
+    }, [restPath]);
 
     return (
-        <section className='about-wrapper'>
-            <div className='about-header'>
-             <h2>About Page</h2>
-             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit porro, dolorem, quod facere enim voluptate provident quo labore vero repellat nemo animi ad exercitationem rem quos, possimus libero deleniti laudantium?</p>
-             <pre className='language-jsx'>
-                <code className='language-jsx'>{`
-                    useEffect(() => {
-        const timeout = setTimeout(handleSkills, 1000);
-        return () => {
-            clearTimeout(timeout);
+        <div className='home-header'>
+            <>
+            { postLoaded ?
+            <>
+                <h1 className='home-title'>{aboutPage.title.rendered}</h1>
+                <div className="home-content" dangerouslySetInnerHTML={{__html:aboutPage.content.rendered}}>
+                    
+                </div>
+                <div className='home-image-container'>
+
+            
+                
+                </div>
+            </>
+        : 
+            <Loading />
         }
-      });
-    `}</code>
-             </pre>
+        </>
             </div>
-        </section>
     );
 
 };

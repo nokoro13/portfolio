@@ -237,6 +237,10 @@ html {
   border: 2px white solid;
 }
 
+.work-content ul li {
+  display: none;
+}
+
 .work-content p {
   display: none;
 }
@@ -335,9 +339,8 @@ html {
   flex-wrap: wrap;
 }
 
-.detail-content {
-  display: flex;
-  margin: auto;
+.detail-content ul li {
+  line-height: 2.5em;
 }
 
 .detail-content .wp-container-2 {
@@ -555,7 +558,31 @@ html {
   max-width: 50vw;
   margin-bottom: 4rem;
   min-width: 320px;
-  
+}
+
+@media (max-width: 768px) {
+  .home-title {
+    font-size: 2.25em;
+  }
+
+  .work-heading {
+    font-size: 2.25em;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-title {
+    font-size: 1.5em;
+  }
+
+  .home-content p {
+    font-size: 1.2em;
+    min-width: 280px;
+  }
+
+  .work-heading {
+    font-size: 1.5em;
+  }
 }
 /*
 .call-to-action {
@@ -596,7 +623,7 @@ html {
   gap: 40px;
   list-style: none;
   margin-left: 10vw;
-  margin-bottom: 4rem;
+  margin-bottom: 10rem;
   position: relative;
   padding: 0;
   /* bottom: -5vh;
@@ -614,6 +641,7 @@ html {
   text-decoration: none;
   justify-content: center;
   font-size: 1rem;
+  font-weight: 700;
   margin-top: 5vh;
   width: 100px;
   padding-top: .5rem;
@@ -667,7 +695,7 @@ html {
 .showMenu li a {
   color: white;
   text-decoration: underline;
-  text-decoration-color: black;
+  text-decoration-color: hsl(0, 0%, 0%, 0) ;
   transition: ease-out .6s;
 }
 
@@ -829,11 +857,11 @@ html {
 
 .skill-item-2-animate {
   transition: 1.6s ease-in;
-  color: #e34c26;
+  color: #f08d49;
 }
 
 .skill-item-3 {
-  color: #e34c26;
+  color: #f08d49;
   border-left: 1px solid white;
 }
 

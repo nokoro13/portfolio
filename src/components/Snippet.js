@@ -32,7 +32,7 @@ code2 = ``;
     } else {
 
         if(id === 49) {
-            code =  `Your Snippets are working`;
+            code =  ``;
             code2 = ``;
         } else {
 
