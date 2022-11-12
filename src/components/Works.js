@@ -53,7 +53,7 @@ const Works = () => {
               
             </article>
             <div dangerouslySetInnerHTML={{__html:post.excerpt.rendered}}></div>
-            <Link className="more-info" to={`detail/${post.slug}`} state={{title: post.title.rendered, content: post.content.rendered, id: post.id}} >
+            <Link className="more-info" to={`detail/${post.slug}`} state={{title: post.title.rendered, content: post.content.rendered, id: post.id}} newcontent={post.content.rendered}>
                 <p>More Info...</p>
             </Link>
             

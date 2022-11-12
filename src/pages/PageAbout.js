@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from 'react';
 import Loading from '../components/Loading';
+import { motion } from 'framer-motion';
+// import Snippet from '../components/Snippet';
 
 const PageAbout = () => {
 
@@ -16,30 +18,36 @@ const PageAbout = () => {
         .then((data) => {
             setAboutPage(data);
             setPostLoaded(true);
-            console.log(data);
+            // console.log(data);
         })
     }, [restPath]);
+    console.log(aboutPage.id);
 
     return (
-        <div className='home-header'>
+        
+        <motion.div className='home-header' initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 2}}>
             <>
             { postLoaded ?
             <>
-                <h1 className='home-title'>{aboutPage.title.rendered}</h1>
+                <h1 className='home-title-2'>{aboutPage.title.rendered}</h1>
                 <div className="home-content" dangerouslySetInnerHTML={{__html:aboutPage.content.rendered}}>
                     
                 </div>
-                <div className='home-image-container'>
-
-            
                 
-                </div>
+                {/* <section className='snippet-container'>
+                    <div>
+                        <h2>Bonus Code!</h2>
+                        <p className='bonus-text'>Highlight you code like this with <a href='https://www.npmjs.com/package/prismjs'>Prism JS</a></p>
+                    </div>
+                
+                <Snippet pageid={aboutPage.id} about={aboutPage}/>
+                </section> */}
             </>
         : 
             <Loading />
         }
         </>
-            </div>
+            </motion.div>
     );
 
 };

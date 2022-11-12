@@ -8,9 +8,9 @@ import Snippet from '../components/Snippet';
 
 export const PageDetail = () => {
     let location = useLocation();
-    const {title}= location.state;
-    const {content} = location.state;
-    const {id} =location.state;
+    const {title} = location.state || 'fallback';
+    const {content} = location.state || 'fallback';
+    const {id} =location.state || 'fallback';
 
     //(Tech = JS %) (TechTwo = HTML %) (TechThree = CSS %)
     //Constants to be used after the handleSkills function runs and finds a match, these constants will be set by the appropriate useState(). After words those state values will be used for the <CircularProgress/> Called in as {skill} {skillTwo} {skillThree}
@@ -201,9 +201,9 @@ export const PageDetail = () => {
                 </article>
 
             </div>
-            <section className='snippet-container'>
+            <div className='snippet-container'>
                 <Snippet newLocation={location} id={id}/>
-            </section>
+            </div>
                 
         </div>
         
