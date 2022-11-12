@@ -27,13 +27,7 @@ const PageHome = () => {
         window.localStorage.setItem('HOME_LOADED', JSON.stringify(name));
         
     },[name]);
-
     
-        if(window.scrollY) {
-            setName(true);
-        }
-    
-
     return (
         <>
 

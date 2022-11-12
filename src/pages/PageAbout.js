@@ -29,7 +29,7 @@ const PageAbout = () => {
             <>
             { postLoaded ?
             <>
-                <h1 className='home-title-2'>{aboutPage.title.rendered}</h1>
+                <h1 className='home-title'>{aboutPage.title.rendered}</h1>
                 <div className="home-content" dangerouslySetInnerHTML={{__html:aboutPage.content.rendered}}>
                     
                 </div>
