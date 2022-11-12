@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Loading from '../components/Loading';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet';
 // import Snippet from '../components/Snippet';
 
 const PageAbout = () => {
@@ -24,12 +25,19 @@ const PageAbout = () => {
     console.log(aboutPage.id);
 
     return (
+<>
+        <Helmet>
         
+            <title>Nokoro | About</title>
+            <meta name="description" content="Junior front-end web developer and web designer graduate through BCIT’s Front End Web Development program."/>
+        
+        </Helmet>
+    <>
         <motion.div className='home-header' initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 2}}>
             <>
             { postLoaded ?
             <>
-                <h1 className='home-title'>{aboutPage.title.rendered}</h1>
+                <h1 className='about-title'>{aboutPage.title.rendered}</h1>
                 <div className="home-content" dangerouslySetInnerHTML={{__html:aboutPage.content.rendered}}>
                     
                 </div>
@@ -48,6 +56,8 @@ const PageAbout = () => {
         }
         </>
             </motion.div>
+            </>
+            </>
     );
 
 };
