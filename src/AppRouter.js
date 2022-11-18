@@ -17,7 +17,7 @@ import { AnimatePresence } from 'framer-motion';
 
 function AppRouter() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/'>
       <div className="wrapper">
         <Nav/>
         <AnimatePresence mode='wait'>
@@ -25,7 +25,7 @@ function AppRouter() {
             <Route path="/" exact element={<PageHome />} />
             <Route path="/about" element={<PageAbout />} />
             <Route path="/work" element={<PageWork />} />
-            <Route path="work/detail/:id" element={<PageDetail />} />
+            <Route path="work/detail/:slug/" element={<PageDetail />} />
           </Routes>
         </AnimatePresence>
         <Footer/>

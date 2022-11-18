@@ -1,21 +1,63 @@
 // Page - Home
 
-import { useEffect } from 'react';
-
+import { useEffect, useState } from 'react';
+import Loading from '../components/Loading';
+import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet';
+// import Snippet from '../components/Snippet';
 
 const PageAbout = () => {
 
+    const restPath = 'https://nokoro.ca/portfolio/wp-json/wp/v2/pages/172';
+
+    const [aboutPage, setAboutPage] = useState([]);
+    const [postLoaded, setPostLoaded] = useState(false);
+    
     useEffect(() => {
-		
-	}, []);
+        fetch(restPath)
+        .then((response) => response.json())
+        .then((data) => {
+            setAboutPage(data);
+            setPostLoaded(true);
+            // console.log(data);
+        })
+    }, [restPath]);
+    console.log(aboutPage.id);
 
     return (
-        <section className='about-wrapper'>
-            <div className='about-header'>
-             <h2>About Page</h2>
-             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit porro, dolorem, quod facere enim voluptate provident quo labore vero repellat nemo animi ad exercitationem rem quos, possimus libero deleniti laudantium?</p>
-            </div>
-        </section>
+<>
+        <Helmet>
+        
+            <title>Nokoro | About</title>
+            <meta name="description" content="Junior front-end web developer and web designer graduate through BCIT’s Front End Web Development program."/>
+        
+        </Helmet>
+    <>
+        <motion.div className='home-header' initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{duration: 2}}>
+            <>
+            { postLoaded ?
+            <>
+                <h1 className='about-title'>{aboutPage.title.rendered}</h1>
+                <div className="home-content" dangerouslySetInnerHTML={{__html:aboutPage.content.rendered}}>
+                    
+                </div>
+                
+                {/* <section className='snippet-container'>
+                    <div>
+                        <h2>Bonus Code!</h2>
+                        <p className='bonus-text'>Highlight you code like this with <a href='https://www.npmjs.com/package/prismjs'>Prism JS</a></p>
+                    </div>
+                
+                <Snippet pageid={aboutPage.id} about={aboutPage}/>
+                </section> */}
+            </>
+        : 
+            <Loading />
+        }
+        </>
+            </motion.div>
+            </>
+            </>
     );
 
 };
