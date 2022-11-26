@@ -484,7 +484,6 @@ article ul li {
   height: 250px;
   object-fit: cover;
   object-position: top;
-  transition: 1.5s;
 }
 
 .home-image-hide {

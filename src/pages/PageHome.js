@@ -49,7 +49,7 @@ const PageHome = () => {
                     
                 </div>
                 <div className='home-image-container'>
-                <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{delay: 2,duration: 2}}>
+                <motion.div initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} transition={{delay: .5,duration: 2}}>
 
                 <img  className={name === true ? 'home-image' : 'home-image-hide'} src="portfolio-pfp.jpg" alt="img" />
                 </motion.div>
