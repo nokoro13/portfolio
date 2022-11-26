@@ -219,6 +219,7 @@ html {
 .work-container {
   margin: auto;
   width: 400px;
+  max-height: 400px;
   overflow: hidden;
   background-color: hsl(160, 100%, 75%, 10%);
   border: 2px aquamarine solid;
@@ -398,6 +399,11 @@ article ul li {
   height: inherit;
 }
 
+.wp-image-216 {
+  width: 100%;
+  height: inherit;
+}
+
 .wp-image-79 {
   width: 100%;
   height: inherit;
@@ -461,7 +467,7 @@ article ul li {
 
 .home-image {
   position: absolute;
-  top: 50vh;
+  top: 45vh;
   right: 10vw;
 }
 
@@ -473,6 +479,12 @@ article ul li {
 .home-image {
   display: flex;
   justify-items: flex-end;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  object-position: top;
+  transition: 1.5s;
 }
 
 .home-image-hide {
@@ -586,6 +598,10 @@ article ul li {
 
   .work-heading {
     font-size: 2.25em;
+  }
+
+  .home-image {
+    display: none;
   }
 
 }
