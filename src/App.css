@@ -580,6 +580,10 @@ article ul li {
     font-size: 2.25em;
   }
 
+  .home-title-2 {
+    font-size: 2.25em;
+  }
+
   .about-title {
     font-size: 2.25em;
   }
@@ -594,6 +598,11 @@ article ul li {
   .home-title {
     font-size: 1.5em;
   }
+
+.home-title-2 {
+  font-size: 1.5em;
+}
+
   .about-title {
     font-size: 1.5em;
   }
