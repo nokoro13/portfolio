@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Loading from '../components/Loading';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 // import Snippet from '../components/Snippet';
 
 const PageAbout = () => {
