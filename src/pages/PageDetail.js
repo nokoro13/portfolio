@@ -35,6 +35,10 @@ export const PageDetail = () => {
     const portfolioTechTwo = 5;
     const portfolioTechThree = 33;
 
+    const weatherTech = 63;
+    const weatherTechTwo = 12;
+    const weatherTechThree =  25;
+
     /* States for the tech used */
     //JS, HTML, CSS
     const [skill, setSkill] = useState(0);
@@ -131,6 +135,26 @@ export const PageDetail = () => {
             if(skill < portfolioTechThree) {
                 setInterval(()=> {
                     setSkillThree((skill)=> (skill >= portfolioTechThree ? portfolioTechThree : skill + 1));
+                }, 100);
+            };
+            // setCode();
+            setMeta('Portfolio website, a headless CMS built using React and WordPress’ REST API.');
+        }
+
+         if(location.state.title === 'Weather App (In Progress)') {
+            if(skill < weatherTech) {
+                setInterval(()=> {
+                    setSkill((skill)=> (skill >= weatherTech ? weatherTech : skill + 1));
+                }, 100);  
+            }
+            if(skill < weatherTechTwo) {
+                setInterval(()=> {
+                    setSkillTwo((skill)=> (skill >= weatherTechTwo ? weatherTechTwo : skill + 1));
+                }, 100);
+            }
+            if(skill < weatherTechThree) {
+                setInterval(()=> {
+                    setSkillThree((skill)=> (skill >= weatherTechThree ? weatherTechThree : skill + 1));
                 }, 100);
             };
             // setCode();
