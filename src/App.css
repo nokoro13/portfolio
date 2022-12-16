@@ -58,8 +58,9 @@ html {
 }
 
 .loading {
-  display: flex;
-  margin: auto;
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
 }
 
 .main-nav {
@@ -222,20 +223,18 @@ html {
   max-height: 400px;
   overflow: hidden;
   background-color: hsl(160, 100%, 75%, 10%);
-  border: 2px aquamarine solid;
+  /* border: 3px white solid; */
+  border-radius: 40px;
   text-align: center;
   color: white;
   transition: .6s ease-out;
-  box-shadow: 0 0 5px 1px white;
-  /* position: relative;
-  z-index: 1000; */
 }
 
 .work-container:hover {
   /*transform: scale(1.05);*/
   transition: .2s ease-in;
-  box-shadow: 0 0 10px 1px aquamarine;
-  border: 2px white solid;
+  box-shadow: 0 0 3px 1px white;
+  /* border: 3px white solid; */
 }
 
 .work-content ul {
@@ -292,7 +291,8 @@ html {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  gap: 60px 60px;
+  /* gap: 60px 60px; */
+  gap: 120px;
   margin: auto;
   max-width: 80%;
   margin-top: 0;
@@ -394,6 +394,11 @@ article ul li {
   margin-right: 0;
 }
 
+.wp-image-222 {
+  width: 100%;
+  height: inherit;
+}
+
 .wp-image-28 {
   width: 100%;
   height: inherit;
@@ -478,6 +483,7 @@ article ul li {
 
 .home-image {
   display: flex;
+  opacity: 1;
   justify-items: flex-end;
   border-radius: 50%;
   width: 250px;
@@ -488,6 +494,13 @@ article ul li {
 
 .home-image-hide {
   display: none;
+  opacity: 0;
+  justify-items: flex-end;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  object-position: top;
 }
 
 .home-header {

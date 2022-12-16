@@ -39,6 +39,10 @@ export const PageDetail = () => {
     const weatherTechTwo = 12;
     const weatherTechThree =  25;
 
+    const tmtTech = 62;
+    const tmtTechTwo = 3;
+    const tmtTechThree =  35;
+
     /* States for the tech used */
     //JS, HTML, CSS
     const [skill, setSkill] = useState(0);
@@ -158,7 +162,27 @@ export const PageDetail = () => {
                 }, 100);
             };
             // setCode();
-            setMeta('Portfolio website, a headless CMS built using React and WordPress’ REST API.');
+            setMeta('Weather app, built in React fetching real time weather forecasts.');
+        }
+
+        if(location.state.title === 'Task Manager Tool (in Progress)') {
+            if(skill < tmtTech) {
+                setInterval(()=> {
+                    setSkill((skill)=> (skill >= tmtTech ? tmtTech : skill + 1));
+                }, 100);  
+            }
+            if(skill < tmtTechTwo) {
+                setInterval(()=> {
+                    setSkillTwo((skill)=> (skill >= tmtTechTwo ? tmtTechTwo : skill + 1));
+                }, 100);
+            }
+            if(skill < tmtTechThree) {
+                setInterval(()=> {
+                    setSkillThree((skill)=> (skill >= tmtTechThree ? tmtTechThree : skill + 1));
+                }, 100);
+            };
+            // setCode();
+            setMeta('Task manager app built in React for you to stay on top of your tasks and responsibilities');
         }
     }
 

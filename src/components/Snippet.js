@@ -229,7 +229,17 @@ const App = () => {
                 
     export default App;`;
     code2 = ``;
-            } 
+            } else {
+                if (id === 219) {
+                    code = ``;
+                    code2 = ``;
+                } else {
+                    if (id === 207) {
+                        code = ``;
+                        code2 = ``; 
+                    }
+                }
+            }
         }
     }
 }
