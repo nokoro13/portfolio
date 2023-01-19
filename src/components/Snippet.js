@@ -1,15 +1,14 @@
-import { useEffect } from "react"
-import Prism from 'prismjs';
+import { useEffect } from "react";
+import Prism from "prismjs";
 
-const Snippet = ({code, code2, language, id, pageid}) => {
+const Snippet = ({ code, code2, language, id, pageid }) => {
+  //Var out side of conditions because all code being displayed is all JS
+  language = "javascript";
 
-    //Var out side of conditions because all code being displayed is all JS
-    language = 'javascript';
-
-    //Match the returned id to the proper code
-    if(id === 27) { //27 === Moovy
-        code = 
-        `- PageHome.js ->
+  //Match the returned id to the proper code
+  if (id === 27) {
+    //27 === Moovy
+    code = `- PageHome.js ->
 
 const PageHome = () => {
 
@@ -32,7 +31,7 @@ const PageHome = () => {
     }, [favs]);
 };
 export default PageHome`;
-code2 = `- PageFavourites.js ->
+    code2 = `- PageFavourites.js ->
 
 const PageFavorites = () => {
 
@@ -58,16 +57,13 @@ const PageFavorites = () => {
 	}, []);
 };
 export default PageFavourites`;
+  } else {
+    if (id === 49) {
+      code = ``;
+      code2 = ``;
     } else {
-
-        if(id === 49) {
-            code =  ``;
-            code2 = ``;
-        } else {
-
-            if(id === 1) {
-                code = 
-                `- Filter.js ->
+      if (id === 1) {
+        code = `- Filter.js ->
 
 import { useEffect } from "react";
 
@@ -100,8 +96,7 @@ function Filter( {setActiveFilter, activeFilter, setFilter, posts} ) {
     }
                 
 export default Filter;`;
-    code2 = 
-    `- Works.js ->
+        code2 = `- Works.js ->
 
 const Works = () => {
     //takes care of all posts
@@ -169,10 +164,9 @@ const Works = () => {
 };
 
 export default Works;`;
-    
-            } else { 
-            if ( id === 5) {
-                code = `- App.js ->
+      } else {
+        if (id === 5) {
+          code = `- App.js ->
 import './App.css';
 import { useState } from 'react';
 import { Cal } from './Cal';
@@ -228,43 +222,93 @@ const App = () => {
     }
                 
     export default App;`;
-    code2 = ``;
+          code2 = ``;
+        } else {
+          if (id === 219) {
+            code = ``;
+            code2 = ``;
+          } else {
+            if (id === 207) {
+              code = ``;
+              code2 = ``;
             } else {
-                if (id === 219) {
-                    code = ``;
-                    code2 = ``;
-                } else {
-                    if (id === 207) {
-                        code = ``;
-                        code2 = ``; 
-                    }
-                }
+              if (id === 239) {
+                code = ` - Generator.js ->                                                                  
+
+const downloadQR = () => {
+const canvas = document.getElementById(query);
+const pngUrl = canvas
+.toDataURL("image/png")
+.replace("image/png", "image/octet-stream");
+let downloadLink = document.createElement("a");
+downloadLink.href = pngUrl;
+downloadLink.download = query + ".png";
+document.body.appendChild(downloadLink);
+downloadLink.click();
+document.body.removeChild(downloadLink);
+};`;
+                code2 = ``;
+              }
             }
+          }
         }
+      }
     }
-}
+  }
 
-    useEffect(()=> {
-        Prism.highlightAll();
-    },[]);
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
 
-    return (
-        <>
+  return (
+    <>
+      <h3 className="code-title">
+        {id === 1
+          ? "Filtering"
+          : "" || id === 27
+          ? "Setting and Getting Local Storage | Favourites"
+          : "" || id === 5
+          ? "Calculator"
+          : ""}
+      </h3>
+      <pre>
+        <code
+          children={code}
+          className={code !== "" ? `language-${language}` : ""}
+        />
+        <p
+          className={code === "" ? "hide-copy" : "copy-clipboard"}
+          onClick={() => {
+            navigator.clipboard.writeText(code);
+          }}
+        >
+          Copy
+        </p>
+      </pre>
 
-        <h3 className="code-title">{id === 1 ? 'Filtering' : '' || id === 27 ? 'Setting and Getting Local Storage | Favourites' : '' || id === 5 ? 'Calculator' : ''}</h3>
-        <pre>
-            <code children={code} className={code !== '' ? `language-${language}` : ''}/>
-            <p className={code === '' ? 'hide-copy' : "copy-clipboard"} onClick={() => {navigator.clipboard.writeText(code)}}>Copy</p>
-        </pre>
-        
-        <h3 className="code-title">{id === 1 ? 'Filtering Continued' : '' || id === 27 ? 'Local Storage continued' : ''}</h3>
-        <pre>
-            <code children={code2} className={code2 !== '' ? `language-${language}` : ''}/>
-            <p className={code2 === '' ? 'hide-copy' : "copy-clipboard"} onClick={() => {navigator.clipboard.writeText(code2)}}>Copy</p>
-        </pre>
-        </>
-
-    )
-}
+      <h3 className="code-title">
+        {id === 1
+          ? "Filtering Continued"
+          : "" || id === 27
+          ? "Local Storage continued"
+          : ""}
+      </h3>
+      <pre>
+        <code
+          children={code2}
+          className={code2 !== "" ? `language-${language}` : ""}
+        />
+        <p
+          className={code2 === "" ? "hide-copy" : "copy-clipboard"}
+          onClick={() => {
+            navigator.clipboard.writeText(code2);
+          }}
+        >
+          Copy
+        </p>
+      </pre>
+    </>
+  );
+};
 
 export default Snippet;

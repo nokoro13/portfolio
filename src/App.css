@@ -57,11 +57,21 @@ html {
   background-color: #282c34;
 }
 
-.loading {
-  position: fixed;
-  top: 50vh;
-  left: 50vw;
-}
+  /* .loading {
+    justify-self: center;
+   } */
+
+   /* .loading {
+    position: fixed;
+    top: 50vh;
+    left: 45vw;
+  } */
+
+  .loading {
+    display: inline-flex;
+    margin: auto;
+    top: 50vh;
+  }
 
 .main-nav {
   /*background-color: #282c34;*/
@@ -331,7 +341,22 @@ html {
  justify-content: center;
  margin-bottom: 1rem;
  text-decoration: none;
+ transition: .3s ease;
 }
+
+.detail-content .wp-block-buttons a:hover{
+  color: black;
+  padding: .5rem;
+  border-radius: 3px;
+  background-color: aquamarine;
+  border: aquamarine 1px solid;
+  display: flex;
+  width: 280px;
+  justify-content: center;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  transition: .3s ease;
+ }
 
 .detail-content {
   max-width: 900px;
@@ -385,6 +410,13 @@ article ul li {
   color: aquamarine;
   border-radius: 3px;
   padding: .5rem;
+  transition: .3s ease;
+}
+
+.back-to-work:hover {
+  color: #282c34;
+  background-color: aquamarine;
+  transition: .3s ease;
 }
 
 /*Img sizes*/
@@ -395,6 +427,11 @@ article ul li {
 }
 
 .wp-image-222 {
+  width: 100%;
+  height: inherit;
+}
+
+.wp-image-240 {
   width: 100%;
   height: inherit;
 }
@@ -707,6 +744,25 @@ article ul li {
   width: 100px;
   padding-top: .5rem;
   padding-bottom: .5rem;
+  border: 1px solid aquamarine;
+  transition: .3s ease;
+}
+
+.call-to-action:hover {
+  display: flex;
+  background-color: #282c34;
+  color: aquamarine;
+  text-decoration: none;
+  justify-content: center;
+  font-size: 1rem;
+  border-radius: 3px;
+  font-weight: 700;
+  margin-top: 5vh;
+  width: 100px;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  border: 1px solid aquamarine;
+  transition: .3s ease;
 }
 
 .home-wrapper .wp-container-1 {
@@ -973,6 +1029,14 @@ article ul li {
   color: aquamarine;
   cursor: copy;
  }
+
+ /* .copy-clipboard {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  margin-top: 0;
+  color: aquamarine;
+ } */
 
  .snippet-container {
   max-width: 900px;

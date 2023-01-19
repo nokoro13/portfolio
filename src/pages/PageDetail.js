@@ -43,6 +43,10 @@ export const PageDetail = () => {
     const tmtTechTwo = 3;
     const tmtTechThree =  35;
 
+    const qrTech = 59;
+    const qrTechTwo = 16;
+    const qrTechThree =  25;
+
     /* States for the tech used */
     //JS, HTML, CSS
     const [skill, setSkill] = useState(0);
@@ -183,6 +187,25 @@ export const PageDetail = () => {
             };
             // setCode();
             setMeta('Task manager app built in React for you to stay on top of your tasks and responsibilities');
+        }
+        if(location.state.title === 'QR code generator') {
+            if(skill < qrTech) {
+                setInterval(()=> {
+                    setSkill((skill)=> (skill >= qrTech ? qrTech : skill + 1));
+                }, 100);  
+            }
+            if(skill < qrTechTwo) {
+                setInterval(()=> {
+                    setSkillTwo((skill)=> (skill >= qrTechTwo ? qrTechTwo : skill + 1));
+                }, 100);
+            }
+            if(skill < qrTechThree) {
+                setInterval(()=> {
+                    setSkillThree((skill)=> (skill >= qrTechThree ? qrTechThree : skill + 1));
+                }, 100);
+            };
+            // setCode();
+            setMeta('Free QR code generator with the ability to save the QR as a PNG. Built in React.js');
         }
     }
 
